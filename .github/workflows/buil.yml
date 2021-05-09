@@ -1,0 +1,32 @@
+name: Build
+on: [push]	
+env:
+  UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+jobs:	
+  build:
+    name: Build my project ✨
+    runs-on: ubuntu-latest
+    steps:	
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        with:
+          lfs: true
+      - name: Active Cache
+        uses: actions/cache@v1.1.0
+        with:
+          path: Library
+          key: Library
+           
+                
+      - name: Unity - Builder
+        uses: game-ci/unity-builder@v2.0-aplha-5
+        with:
+          unityVersion: 2020.2.1f1
+          targetPlatform: StandaloneWindows64
+          kubeVolumeSize: 8Gi
+      
+      - name: Upload Build
+        uses: actions/upload-artifact@v1
+        with:
+          name: Build
+          path: build
