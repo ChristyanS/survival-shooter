@@ -55,6 +55,7 @@ jobs:
         with: 
           tag_name: v${{github.run_number}}
           release_name: V${{github.run_number}}
+          
       - name: Upload asset to Github Release
         uses: actions/upload-release-asset@v1
         env:
@@ -62,6 +63,6 @@ jobs:
         with:
           upload_url: ${{steps.create-new-release.outputs.upload_url}}
           asset_name: Build-v${{github.run_number}}
-          asset_path: ./Build.zip
+          asset_path: ${{steps.download.outputs.download-path}}/Build.zip
           asset_content_type: application/zip
         
