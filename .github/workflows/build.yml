@@ -1,16 +1,16 @@
 name: Build
-on: 
+on:
   push:
     branches:
       - main
 env:
   UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
-jobs:	
+jobs:
 
   build:
     name: Build my project ✨
     runs-on: ubuntu-latest
-    steps:	
+    steps:
       - name: Checkout repository ☑️
         uses: actions/checkout@v2
         with:
@@ -20,21 +20,29 @@ jobs:
         with:
           path: Library
           key: Library
-           
-                
       - name: Unity - Builder 🔨
         uses: game-ci/unity-builder@v2.0-aplha-5
         with:
           unityVersion: 2020.2.1f1
           targetPlatform: StandaloneWindows64
           kubeVolumeSize: 8Gi
-      
+
+      - name: SonarCloud Scan
+        uses: sonarsource/sonarcloud-github-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        with:
+          args: >
+            -Dsonar.organization=${{ secrets.SONAR_ORGANIZATION_KEY }}
+            -Dsonar.projectKey=${{ secrets.SONAR_PROJECT_KEY }}
+
       - name: Upload Build ⬆️
         uses: actions/upload-artifact@v1
         with:
           name: Build
           path: build
-          
+
   release-project:
     name: Create Release 📦
     runs-on: ubuntu-latest
@@ -43,23 +51,23 @@ jobs:
       - name: Download site ⬇️
         uses: actions/download-artifact@v2
         id: download
-        with: 
+        with:
           name: Build
-          
+
       - name: Archive Build content
         uses: thedoctor0/zip-release@master
         with:
           filename: Build.zip
-        
+
       - name: Create GitHub Release 🐱📦
         id: create-new-release
         uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with: 
+        with:
           tag_name: v${{github.run_number}}
           release_name: V${{github.run_number}}
-          
+
       - name: Upload asset to Github Release
         uses: actions/upload-release-asset@v1
         env:
