@@ -23,10 +23,12 @@
       <Path>.git</Path>
       <Path>.github</Path>
       <Path>.idea</Path>
+      <Path>.sonarqube</Path>
       <Path>Library</Path>
       <Path>Logs</Path>
       <Path>Temp</Path>
       <Path>UserSettings</Path>
+      <Path>node_modules</Path>
       <Path>obj</Path>
     </explicitExcludes>
   </component>
