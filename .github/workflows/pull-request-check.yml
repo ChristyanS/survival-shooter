@@ -1,0 +1,27 @@
+name: Pull Request Check
+on: [pull_request]
+env:
+  UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+jobs:
+
+  build:
+    name: Pull Request Check
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository ☑️
+        uses: actions/checkout@v2
+        with:
+          lfs: true
+          
+      - name: SonarCloud Scan
+        uses: sonarsource/sonarcloud-github-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        with:
+          args: >
+            -Dsonar.organization=${{ secrets.SONAR_ORGANIZATION_KEY }}
+            -Dsonar.projectKey=${{ secrets.SONAR_PROJECT_KEY }}
+
+ 
+        
