@@ -74,15 +74,17 @@ jobs:
         uses: thedoctor0/zip-release@master
         with:
           filename: Build.zip
-      - name: URL ECHO
-        run: echo "output ${{ steps.create-new-release.outputs }}"
+          
+      - name: Gets latest created release info
+        id: latest_release_info
+        uses: jossef/action-latest-release-info@v1.1.0
 
       - name: Upload asset to Github Release
         uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          upload_url: ${{steps.create-new-release.outputs.upload_url}}
+          upload_url: ${{steps.latest_release_info.outputs.upload_url}}
           asset_name: Build-v${{github.run_number}}.zip
           asset_path: ./Build.zip
           asset_content_type: application/zip
