@@ -53,6 +53,7 @@ jobs:
 
       - name: Create GitHub Release 🐱📦
         uses: actions/setup-node@v1
+        id: create-new-release
         with:
           node-version: "12.x"
       - run: npm ci
@@ -73,12 +74,8 @@ jobs:
         uses: thedoctor0/zip-release@master
         with:
           filename: Build.zip
-
-      - name: Get release
-        id: create-new-release
-        uses: bruceadams/get-release@v1.2.2
-        env:
-          GITHUB_TOKEN: ${{ github.token }}
+      - name: URL ECHO
+        run: echo output ${{ steps.create-new-release.outputs}}"
 
       - name: Upload asset to Github Release
         uses: actions/upload-release-asset@v1
