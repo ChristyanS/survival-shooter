@@ -75,7 +75,7 @@ jobs:
         with:
           filename: Build.zip
       - name: URL ECHO
-        run: echo output ${{ steps.create-new-release.outputs}}"
+        run: echo "output ${{ steps.create-new-release.outputs }}"
 
       - name: Upload asset to Github Release
         uses: actions/upload-release-asset@v1
