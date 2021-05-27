@@ -13,6 +13,12 @@ jobs:
         with:
           lfs: true
           
+      - name: Unit Tests
+        uses: game-ci/unity-test-runner@v2
+        with:
+          unityVersion: 2020.2.1f1
+          githubToken: ${{ secrets.GITHUB_TOKEN }}
+          
       - name: SonarCloud Scan
         uses: sonarsource/sonarcloud-github-action@master
         env:
