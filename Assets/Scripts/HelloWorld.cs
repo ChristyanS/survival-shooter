@@ -3,11 +3,11 @@ using UnityEngine;
 
 namespace DefaultNamespace
 {
-    public class HelloWorld: MonoBehaviour
+    public class HelloWorld
     {
-        private void Update()
+        public bool Test()
         {
-            Debug.Log("Hello World");
+            return true;
         }
     }
 }

@@ -1,5 +1,5 @@
 name: Pull Request Check
-on: [pull_request]
+on: [ pull_request ]
 env:
   UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
 jobs:
@@ -12,8 +12,14 @@ jobs:
         uses: actions/checkout@v2
         with:
           lfs: true
-          
-      - name: SonarCloud Scan
+
+      - name: Unit Tests 🧪
+        uses: game-ci/unity-test-runner@v2
+        with:
+          unityVersion: 2020.2.1f1
+          githubToken: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: SonarCloud Scan 🔍
         uses: sonarsource/sonarcloud-github-action@master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
