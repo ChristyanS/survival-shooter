@@ -1328,6 +1328,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1897620357, guid: fa1bd9d5a9727c343bc227be091b7663, type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     - target: {fileID: 7234491059419150729, guid: fa1bd9d5a9727c343bc227be091b7663, type: 3}
       propertyPath: m_Pivot.x
       value: 0
