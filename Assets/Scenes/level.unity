@@ -123,11 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 23800000, guid: ecaa71b70457d7944a3b3dbd72b587c9, type: 2}
---- !u!4 &25992829 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 25992829, guid: 0707d496545dbdd46a83675e8c98ed0d, type: 3}
-  m_PrefabInstance: {fileID: 1314194331285339552}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &310451826
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -281,11 +276,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 525108506}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!4 &526527504 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 526527504, guid: 0707d496545dbdd46a83675e8c98ed0d, type: 3}
-  m_PrefabInstance: {fileID: 1314194331285339552}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &692991702
 GameObject:
   m_ObjectHideFlags: 0
@@ -1159,18 +1149,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1314194332821162128, guid: 0707d496545dbdd46a83675e8c98ed0d, type: 3}
-      propertyPath: spawnPoints.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 1314194332821162128, guid: 0707d496545dbdd46a83675e8c98ed0d, type: 3}
-      propertyPath: spawnPoints.Array.data[1]
-      value: 
-      objectReference: {fileID: 526527504}
-    - target: {fileID: 1314194332821162128, guid: 0707d496545dbdd46a83675e8c98ed0d, type: 3}
-      propertyPath: spawnPoints.Array.data[2]
-      value: 
-      objectReference: {fileID: 25992829}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0707d496545dbdd46a83675e8c98ed0d, type: 3}
 --- !u!1001 &7234491059152895902
