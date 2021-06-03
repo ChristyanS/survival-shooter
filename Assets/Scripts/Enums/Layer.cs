@@ -1,6 +1,6 @@
 namespace Enums
 {
-    public enum Layers
+    public enum Layer
     {
         Default = 0,
         Ground = 6

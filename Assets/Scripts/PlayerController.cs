@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     private const float CamRayLenght = 100f;
-    [SerializeField] private float speed;
+    [SerializeField] [Range(1, 20)] private float speed = 6f;
     private Camera _camera;
     private CharacterController _characterController;
     private int _floorLayerMaskValue;
@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         _characterController = GetComponent<CharacterController>();
-        _floorLayerMaskValue = LayerMask.GetMask(Layers.Ground.ToString());
+        _floorLayerMaskValue = LayerMask.GetMask(Layer.Ground.ToString());
         _camera = Camera.main;
 
         Validate();
@@ -24,13 +24,13 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        Move(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        Move(Input.GetAxisRaw(Axis.Horizontal.ToString()), Input.GetAxisRaw(Axis.Vertical.ToString()));
         Turning();
     }
 
     private void Validate()
     {
-        if (_floorLayerMaskValue == (int) Layers.Default)
+        if (_floorLayerMaskValue == (int) Layer.Default)
             throw new ArgumentException("No specific layer is found");
         if (!(_camera is { }))
             throw new ArgumentException("No camera setup found to this scene");
