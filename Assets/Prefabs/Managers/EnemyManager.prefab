@@ -139,4 +139,6 @@ MonoBehaviour:
   enemy: {fileID: 41834086014004178, guid: b372a8dc96fbcfa41896ed5e3fc65e7b, type: 3}
   spawnPoints:
   - {fileID: 881686422}
+  - {fileID: 526527504}
+  - {fileID: 25992829}
   spawnTime: 3
