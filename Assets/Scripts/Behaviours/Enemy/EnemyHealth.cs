@@ -1,4 +1,5 @@
 using System;
+using Behaviours.Managers;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -9,6 +10,7 @@ namespace Behaviours.Enemy
         [SerializeField] [Range(1, 200)] private int startingHealth = 100;
         [SerializeField] [Range(1, 20)] private float sinkSpeed = 2.5f;
         [SerializeField] [Range(0, 5)] private float sinkTime = 2;
+        [SerializeField] [Range(0, 200)] private int scoreValue = 10;
         private CapsuleCollider _capsuleCollider;
         private int _currentHealth;
         private bool _isDead;
@@ -64,6 +66,7 @@ namespace Behaviours.Enemy
         {
             _navMeshAgent.enabled = false;
             _isSinking = true;
+            ScoreManager.Score += scoreValue;
             Destroy(gameObject, sinkTime);
         }
     }
