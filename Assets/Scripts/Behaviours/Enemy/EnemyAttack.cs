@@ -10,23 +10,25 @@ namespace Behaviours.Enemy
     {
         [SerializeField] [Range(0.1f, 10)] private float timeBetweenAttacks = 0.5f;
         [SerializeField] [Range(1, 200)] private int attackDamage = 10;
+        private EnemyHealth _enemyHealth;
         private bool _isAttacking;
         private bool _isPlayerInRange;
 
         private GameObject _player;
         private PlayerHealth _playerHealth;
+        private bool CanAttack => _isPlayerInRange && !_isAttacking && _enemyHealth.IsAlive;
 
         private void Start()
         {
             _player = GameObject.FindGameObjectWithTag(Tag.Player.ToString());
             _playerHealth = _player.GetComponent<PlayerHealth>();
-
+            _enemyHealth = GetComponent<EnemyHealth>();
             Validate();
         }
 
         private void Update()
         {
-            if (_isPlayerInRange && !_isAttacking)
+            if (CanAttack)
                 StartCoroutine(Attack());
         }
 
@@ -61,19 +63,19 @@ namespace Behaviours.Enemy
 
             if (!sphereCollider.isTrigger)
                 throw new ArgumentException("Sphere collider is not a trigger");
+
+            if (_enemyHealth == null)
+                throw new ArgumentException("No enemy health found");
         }
 
         private IEnumerator Attack()
         {
-            if (_playerHealth.IsAlive)
-            {
-                _playerHealth.TakeDamage(attackDamage);
-                _isAttacking = true;
+            _playerHealth.TakeDamage(attackDamage);
+            _isAttacking = true;
 
-                yield return new WaitForSeconds(timeBetweenAttacks);
+            yield return new WaitForSeconds(timeBetweenAttacks);
 
-                _isAttacking = false;
-            }
+            _isAttacking = false;
         }
     }
 }

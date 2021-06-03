@@ -28,9 +28,9 @@ Survival shooter is a isometric 3d game made with Unity.
 - [x] Automatic Release
 - [x] Semantic Version
 - [x] Sonar Quality Gate
-- [ ] Unit tests
+- [x] Unit tests
 - [ ] Game Design Document
-- [ ] Pull Request Check
+- [x] Pull Request Check
 
 ### *️⃣ Requirements
 
