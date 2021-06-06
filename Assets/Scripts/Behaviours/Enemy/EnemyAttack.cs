@@ -13,7 +13,6 @@ namespace Behaviours.Enemy
         private EnemyHealth _enemyHealth;
         private bool _isAttacking;
         private bool _isPlayerInRange;
-
         private GameObject _player;
         private PlayerHealth _playerHealth;
         private bool CanAttack => _isPlayerInRange && !_isAttacking && _enemyHealth.IsAlive;
