@@ -384,7 +384,6 @@ GameObject:
   - component: {fileID: 1348219971}
   - component: {fileID: 1348219975}
   - component: {fileID: 1348219974}
-  - component: {fileID: 1348219973}
   - component: {fileID: 1348219972}
   m_Layer: 5
   m_Name: GameOverText
@@ -454,18 +453,6 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Game Over!
---- !u!114 &1348219973
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1348219970}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f75173507b44577af10c670c442f5d4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1348219972
 MonoBehaviour:
   m_ObjectHideFlags: 0
