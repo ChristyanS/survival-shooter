@@ -43,7 +43,6 @@ namespace Behaviours.Player
         private void Move(float horizontalAxis, float verticalAxis)
         {
             _movement.Set(horizontalAxis, 0, verticalAxis);
-
             _movement = _movement.normalized * (speed * Time.deltaTime);
 
             _characterController.Move(_movement);
