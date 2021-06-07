@@ -1,7 +1,4 @@
-using System.Collections;
-using DefaultNamespace;
 using NUnit.Framework;
-using UnityEngine.TestTools;
 
 namespace Test.EditMode
 {
@@ -14,7 +11,5 @@ namespace Test.EditMode
             var helloWorld = new HelloWorld();
             Assert.IsTrue(helloWorld.Test());
         }
-
-    
     }
 }

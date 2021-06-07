@@ -43,7 +43,7 @@ namespace Behaviours.Enemy
                 throw new ArgumentException("No nav mesh agent is found");
         }
 
-        public void TakeDamage(int amount, Vector3 hitPoints)
+        public void TakeDamage(int amount)
         {
             if (!_isDead)
             {
