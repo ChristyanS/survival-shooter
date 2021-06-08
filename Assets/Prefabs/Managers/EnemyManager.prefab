@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 25992828}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.2, y: 0, z: -41.47}
+  m_LocalPosition: {x: 22.05, y: 0, z: -30.720001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1314194332821162127}
@@ -54,7 +54,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 526527503}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -30.21, y: 0, z: -9.65}
+  m_LocalPosition: {x: -16.21, y: -0.52, z: -7.8999996}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1314194332821162127}
@@ -84,7 +84,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 881686421}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.81, y: 0, z: 12.36}
+  m_LocalPosition: {x: -13.310001, y: 0, z: 9.28}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1314194332821162127}
@@ -100,6 +100,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1314194332821162127}
   - component: {fileID: 1314194332821162128}
+  - component: {fileID: 964499811}
+  - component: {fileID: 964499810}
   m_Layer: 0
   m_Name: EnemyManager
   m_TagString: Untagged
@@ -141,4 +143,40 @@ MonoBehaviour:
   - {fileID: 881686422}
   - {fileID: 526527504}
   - {fileID: 25992829}
-  spawnTime: 3
+  spawnTime: 5
+--- !u!114 &964499811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1314194332821162126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2257b2345eb5c7c45bd550807be5de2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy: {fileID: 3614308920133137740, guid: 1bbc48514a37cae4291bd5eb24b3e21b, type: 3}
+  spawnPoints:
+  - {fileID: 881686422}
+  - {fileID: 526527504}
+  - {fileID: 25992829}
+  spawnTime: 6
+--- !u!114 &964499810
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1314194332821162126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2257b2345eb5c7c45bd550807be5de2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy: {fileID: 6368388700074760345, guid: fcd1a614bd5f530468edc645164f93fd, type: 3}
+  spawnPoints:
+  - {fileID: 881686422}
+  - {fileID: 526527504}
+  - {fileID: 25992829}
+  spawnTime: 10

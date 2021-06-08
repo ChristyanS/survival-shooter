@@ -300,9 +300,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 3210402101948336768, guid: 5ffa900b724fcc34ea09d77a65ac3ea2, type: 3}
   timeBetweenBullets: 0.15
-  recoil: 0.1
+  recoil: 0.08
   speed: 48
-  damage: 10
+  damage: 20
 --- !u!1 &8314545337166512844
 GameObject:
   m_ObjectHideFlags: 0
