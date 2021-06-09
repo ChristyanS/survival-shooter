@@ -6,5 +6,7 @@ namespace Enums
         Health = 2,
         DamageImage = 3,
         Enemy = 4,
+        Loot = 5,
+        Weapon = 6
     }
 }

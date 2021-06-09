@@ -2104,10 +2104,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyManager
       objectReference: {fileID: 0}
-    - target: {fileID: 1314194332821162126, guid: 0707d496545dbdd46a83675e8c98ed0d, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1314194332821162127, guid: 0707d496545dbdd46a83675e8c98ed0d, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -2380,10 +2376,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3568468435250230644, guid: 7cc900c2ebc10d541a1b30ff243b076c, type: 3}
-      propertyPath: damage
-      value: 100
-      objectReference: {fileID: 0}
     - target: {fileID: 8314545337382356952, guid: 7cc900c2ebc10d541a1b30ff243b076c, type: 3}
       propertyPath: m_RootOrder
       value: 2

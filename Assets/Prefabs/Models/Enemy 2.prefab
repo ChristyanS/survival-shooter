@@ -194,6 +194,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weapons:
   - {fileID: 3008760121770031206, guid: 16d6a02d5f529c744917848bee6b76d3, type: 3}
+  - {fileID: 2731068075640019144, guid: ef5c418cedbe16a4d80d378eacfda25f, type: 3}
+  - {fileID: 2509769267836967102, guid: 5207241d8aac42049b818ffd62f468a7, type: 3}
+  - {fileID: 1839296612958858669, guid: faa80a1a3a015314591babfd1a4de9bd, type: 3}
+  dropPercentage: 40
 --- !u!1 &6368388700630571757
 GameObject:
   m_ObjectHideFlags: 0
