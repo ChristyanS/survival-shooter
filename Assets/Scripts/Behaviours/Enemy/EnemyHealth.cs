@@ -16,6 +16,7 @@ namespace Behaviours.Enemy
         private bool _isDead;
         private bool _isSinking;
         private NavMeshAgent _navMeshAgent;
+        private EnemyDrop _enemyDrop;
         public bool IsAlive => _currentHealth > 0;
 
 
@@ -23,6 +24,7 @@ namespace Behaviours.Enemy
         {
             _capsuleCollider = GetComponent<CapsuleCollider>();
             _navMeshAgent = GetComponent<NavMeshAgent>();
+            _enemyDrop = GetComponent<EnemyDrop>();
             _currentHealth = startingHealth;
             Validate();
         }
@@ -41,6 +43,8 @@ namespace Behaviours.Enemy
                 throw new ArgumentException("No capsule collider is found");
             if (_navMeshAgent == null)
                 throw new ArgumentException("No nav mesh agent is found");
+            if (_enemyDrop == null)
+                throw new ArgumentException("No enemy drop is found");
         }
 
         public void TakeDamage(int amount)
@@ -60,6 +64,7 @@ namespace Behaviours.Enemy
             _isDead = true;
             _capsuleCollider.isTrigger = true;
             StartSinking();
+            _enemyDrop.Drop();
         }
 
         private void StartSinking()

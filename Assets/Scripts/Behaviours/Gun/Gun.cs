@@ -9,7 +9,7 @@ namespace Behaviours.Gun
     public class Gun : MonoBehaviour
     {
         [SerializeField] private Transform bullet;
-        [SerializeField] [Range(0.001f, 1)] private float timeBetweenBullets = 0.15f;
+        [SerializeField] [Range(0.001f, 2)] private float timeBetweenBullets = 0.15f;
         [SerializeField] [Range(0.001f, 1)] private float recoil = 0.2f;
         [SerializeField] [Range(1, 100)] private float speed = 1;
         [SerializeField] [Range(1, 1000)] private int damage = 10;
