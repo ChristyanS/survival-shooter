@@ -450,6 +450,7 @@ GameObject:
   - component: {fileID: 2509769267836798110}
   - component: {fileID: 8821964533419783907}
   - component: {fileID: -9104131708520758196}
+  - component: {fileID: 675657239745833279}
   m_Layer: 0
   m_Name: M1911
   m_TagString: Loot
@@ -499,3 +500,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item: {fileID: 558899047430866811, guid: 6f1a7354265853f44b0ed5e2e43676ad, type: 3}
+--- !u!95 &675657239745833279
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2509769267836967102}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0a468ded149d2d443ad09509570b0fb1, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2731068075637753352}
   - component: {fileID: -7661161795724086303}
   - component: {fileID: -1075423636568247823}
+  - component: {fileID: 1132050043}
   m_Layer: 0
   m_Name: M107
   m_TagString: Loot
@@ -112,6 +113,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item: {fileID: 920844463563208395, guid: 7359baf27e84aa44cafac3788c8be0f1, type: 3}
+--- !u!95 &1132050043
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2731068075640019144}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4f443d4ef7bc3de41b36ae6d20365342, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2731068075640019146
 GameObject:
   m_ObjectHideFlags: 0

@@ -48,7 +48,7 @@ namespace Behaviours.Gun
 
             var value = Random.Range(-recoil, recoil);
 
-            var signal = value >= 0 ? 1 : -1;
+            var signal = Mathf.Sign(value);
 
             bulletInstantiate.GetComponent<Bullet>()
                 .Setup(Vector3.Slerp(direction.forward, signal * direction.right, Mathf.Abs(value)), speed, damage);
