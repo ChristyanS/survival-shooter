@@ -10,6 +10,7 @@ namespace Behaviours.Player
         [SerializeField] [Range(1, 200)] private int startingHealth = 100;
         [SerializeField] [Range(1, 10)] private float flashSpeed = 5f;
         [SerializeField] private Color flashColour = new Color(1f, 0f, 0f, 0.1f);
+        [SerializeField] public AudioClip deathClip;
 
         private int _currentHealth;
         private Image _damageImage;
@@ -17,7 +18,7 @@ namespace Behaviours.Player
         private bool _isDamaged;
         private bool _isDead;
         private PlayerMovement _playerMovement;
-
+        private AudioSource _audioSource;
         public bool IsAlive => _currentHealth > 0;
 
         private void Start()
@@ -26,6 +27,7 @@ namespace Behaviours.Player
             _healthSlider = GameObject.FindGameObjectWithTag(Tag.Health.ToString()).GetComponent<Slider>();
             _damageImage = GameObject.FindGameObjectWithTag(Tag.DamageImage.ToString()).GetComponent<Image>();
             _playerMovement = GetComponent<PlayerMovement>();
+            _audioSource = GetComponent<AudioSource>();
 
             Validate();
 
@@ -49,6 +51,10 @@ namespace Behaviours.Player
                 throw new ArgumentException("No player movement found");
             if (_damageImage == null)
                 throw new ArgumentException("No damage image found");
+            if (_audioSource == null)
+                throw new ArgumentException("No AudioSource found");
+            if (deathClip == null)
+                throw new ArgumentException("No death audio clip found");
         }
 
         public void TakeDamage(int amount)
@@ -56,8 +62,9 @@ namespace Behaviours.Player
             _isDamaged = true;
             _currentHealth -= amount;
             _healthSlider.value = _currentHealth;
+            _audioSource.Play();
 
-            if (_currentHealth <= 0 && !_isDead)
+            if (!IsAlive && !_isDead)
             {
                 Death();
             }
@@ -67,6 +74,8 @@ namespace Behaviours.Player
         {
             _isDead = true;
             _playerMovement.enabled = false;
+            _audioSource.clip = deathClip;
+            _audioSource.Play();
         }
     }
 }
