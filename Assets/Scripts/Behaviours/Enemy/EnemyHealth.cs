@@ -11,12 +11,15 @@ namespace Behaviours.Enemy
         [SerializeField] [Range(1, 20)] private float sinkSpeed = 2.5f;
         [SerializeField] [Range(0, 5)] private float sinkTime = 2;
         [SerializeField] [Range(0, 200)] private int scoreValue = 10;
+        [SerializeField] private AudioClip deathClip;
         private CapsuleCollider _capsuleCollider;
+        private ParticleSystem _hitParticles;
         private int _currentHealth;
         private bool _isDead;
         private bool _isSinking;
         private NavMeshAgent _navMeshAgent;
         private EnemyDrop _enemyDrop;
+        private AudioSource _audioSource;
         public bool IsAlive => _currentHealth > 0;
 
 
@@ -25,6 +28,8 @@ namespace Behaviours.Enemy
             _capsuleCollider = GetComponent<CapsuleCollider>();
             _navMeshAgent = GetComponent<NavMeshAgent>();
             _enemyDrop = GetComponent<EnemyDrop>();
+            _audioSource = GetComponent<AudioSource>();
+            _hitParticles = GetComponentInChildren<ParticleSystem>();
             _currentHealth = startingHealth;
             Validate();
         }
@@ -45,12 +50,22 @@ namespace Behaviours.Enemy
                 throw new ArgumentException("No nav mesh agent is found");
             if (_enemyDrop == null)
                 throw new ArgumentException("No enemy drop is found");
+            if (_audioSource == null)
+                throw new ArgumentException("No Audio Source is found");
+            if (deathClip == null)
+                throw new ArgumentException("No death clip is found");
+            if (_hitParticles == null)
+                throw new ArgumentException("No particle system is found");
         }
 
         public void TakeDamage(int amount)
         {
             if (!_isDead)
             {
+                _audioSource.Play();
+
+                _hitParticles.Play();
+
                 _currentHealth -= amount;
                 if (!IsAlive)
                 {
@@ -65,6 +80,8 @@ namespace Behaviours.Enemy
             _capsuleCollider.isTrigger = true;
             StartSinking();
             _enemyDrop.Drop();
+            _audioSource.clip = deathClip;
+            _audioSource.Play();
         }
 
         private void StartSinking()

@@ -69,7 +69,8 @@ namespace Behaviours.Enemy
 
         private IEnumerator Attack()
         {
-            _playerHealth.TakeDamage(attackDamage);
+            if (_playerHealth.IsAlive)
+                _playerHealth.TakeDamage(attackDamage);
             _isAttacking = true;
 
             yield return new WaitForSeconds(timeBetweenAttacks);
