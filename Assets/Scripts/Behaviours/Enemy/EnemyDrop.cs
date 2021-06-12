@@ -29,7 +29,7 @@ namespace Behaviours.Enemy
         {
             if (CanDropItem())
             {
-                Instantiate(items[Random.Range(0, items.Count - 1)], transform.position,
+                Instantiate(items[Random.Range(0, items.Count)], transform.position,
                     Quaternion.identity);
             }
         }
