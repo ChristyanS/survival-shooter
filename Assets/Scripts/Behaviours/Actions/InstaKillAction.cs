@@ -20,7 +20,7 @@ namespace Behaviours.Actions
             yield return new WaitForSeconds(time);
 
             GameManager.InstaKillEnable = false;
-            Destroy(this);
+            Destroy(gameObject);
         }
     }
 }
