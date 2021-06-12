@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 25992829}
   m_Layer: 0
-  m_Name: EnemySpawnPoint (2)
+  m_Name: EnemySpawn Point 3
   m_TagString: Untagged
   m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -40,7 +40,7 @@ GameObject:
   m_Component:
   - component: {fileID: 526527504}
   m_Layer: 0
-  m_Name: EnemySpawnPoint (1)
+  m_Name: Enemy Spawn Point 2
   m_TagString: Untagged
   m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -70,7 +70,7 @@ GameObject:
   m_Component:
   - component: {fileID: 881686422}
   m_Layer: 0
-  m_Name: EnemySpawnPoint
+  m_Name: Enemy Spawn Point 1
   m_TagString: Untagged
   m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0

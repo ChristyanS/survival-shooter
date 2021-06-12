@@ -89,6 +89,7 @@ namespace Behaviours.Enemy
             _navMeshAgent.enabled = false;
             _isSinking = true;
             ScoreManager.Score += scoreValue;
+            KillManager.Kills++;
             Destroy(gameObject, sinkTime);
         }
     }
