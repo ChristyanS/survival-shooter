@@ -449,8 +449,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2509769267836798110}
   - component: {fileID: 8821964533419783907}
-  - component: {fileID: -9104131708520758196}
   - component: {fileID: 675657239745833279}
+  - component: {fileID: 2833976870691662250}
   m_Layer: 0
   m_Name: M1911Loot
   m_TagString: Loot
@@ -487,21 +487,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 0.56801796}
   m_Center: {x: 0, y: 0, z: 0.041859627}
---- !u!114 &-9104131708520758196
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2509769267836967102}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 95c3d5ef872f4dd3a5a9322ff18b7704, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  loot: {fileID: 558899047430866811, guid: 6f1a7354265853f44b0ed5e2e43676ad, type: 3}
-  lootTag: 6
-  itemType: 1
 --- !u!95 &675657239745833279
 Animator:
   serializedVersion: 3
@@ -521,3 +506,16 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &2833976870691662250
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2509769267836967102}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc1556d7d0bc47309638a9ee93e26aef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  loot: {fileID: 558899047430866811, guid: 6f1a7354265853f44b0ed5e2e43676ad, type: 3}

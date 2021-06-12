@@ -65,13 +65,20 @@ namespace Behaviours.Enemy
                 _audioSource.Play();
 
                 _hitParticles.Play();
-
-                _currentHealth -= amount;
+                if (GameManager.InstaKillEnable)
+                    _currentHealth = 0;
+                else
+                    _currentHealth -= amount;
                 if (!IsAlive)
                 {
                     Death();
                 }
             }
+        }
+
+        public void TakeDamage()
+        {
+            TakeDamage(_currentHealth);
         }
 
         private void Death()

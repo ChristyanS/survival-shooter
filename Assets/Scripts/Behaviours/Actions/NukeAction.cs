@@ -4,14 +4,14 @@ using UnityEngine;
 
 namespace Behaviours.Actions
 {
-    public class Nuke : MonoBehaviour
+    public class NukeAction : ActionBehaviour
     {
-        public void Action()
+        public override void Execute()
         {
             var enemies = GameObject.FindGameObjectsWithTag(Tag.Enemy.ToString());
             foreach (var enemy in enemies)
             {
-                enemy.GetComponent<EnemyHealth>().TakeDamage(1000); //todo ver uma forma de dar o máximo de dano
+                enemy.GetComponent<EnemyHealth>().TakeDamage();
             }
         }
     }
