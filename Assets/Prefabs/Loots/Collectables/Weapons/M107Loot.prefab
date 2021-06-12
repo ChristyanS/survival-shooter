@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -1075423636568247823}
   - component: {fileID: 1132050043}
   m_Layer: 0
-  m_Name: M107
+  m_Name: M107Loot
   m_TagString: Loot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -112,7 +112,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95c3d5ef872f4dd3a5a9322ff18b7704, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item: {fileID: 920844463563208395, guid: 7359baf27e84aa44cafac3788c8be0f1, type: 3}
+  loot: {fileID: 920844463563208395, guid: 7359baf27e84aa44cafac3788c8be0f1, type: 3}
+  lootTag: 6
+  itemType: 1
 --- !u!95 &1132050043
 Animator:
   serializedVersion: 3

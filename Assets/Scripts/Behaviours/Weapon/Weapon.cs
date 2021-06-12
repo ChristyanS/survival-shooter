@@ -6,7 +6,7 @@ using Random = UnityEngine.Random;
 
 namespace Behaviours.Gun
 {
-    public class Gun : MonoBehaviour
+    public class Weapon : MonoBehaviour
     {
         [SerializeField] private Transform bullet;
         [SerializeField] [Range(0.001f, 2)] private float timeBetweenBullets = 0.15f;

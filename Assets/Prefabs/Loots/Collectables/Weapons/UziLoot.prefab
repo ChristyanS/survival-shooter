@@ -340,7 +340,7 @@ GameObject:
   - component: {fileID: 5634916170322955384}
   - component: {fileID: 1515139882}
   m_Layer: 0
-  m_Name: Uzi
+  m_Name: UziLoot
   m_TagString: Loot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -438,7 +438,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95c3d5ef872f4dd3a5a9322ff18b7704, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item: {fileID: 4995404668597870146, guid: 6273e2936e9d6a24e9f64c7c70d6bd19, type: 3}
+  loot: {fileID: 4995404668597870146, guid: 6273e2936e9d6a24e9f64c7c70d6bd19, type: 3}
+  lootTag: 6
+  itemType: 1
 --- !u!95 &1515139882
 Animator:
   serializedVersion: 3

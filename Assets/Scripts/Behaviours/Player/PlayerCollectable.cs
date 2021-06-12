@@ -1,5 +1,8 @@
 using System;
+using System.Diagnostics;
+using Behaviours.Actions;
 using Behaviours.Item;
+using Behaviours.Utils;
 using Enums;
 using UnityEngine;
 
@@ -8,7 +11,7 @@ namespace Behaviours.Player
     public class PlayerCollectable : MonoBehaviour
     {
         [SerializeField] private GameObject handObject;
-        
+
         private void OnValidate()
         {
             if (handObject == null)
@@ -19,13 +22,22 @@ namespace Behaviours.Player
         {
             if (other.CompareTag(Tag.Loot.ToString()))
             {
-                DestroyAllChilds(handObject.transform);
+                var item = Item.Item.GetItem(other);
 
-                var item = GetWeaponItem(other);
-
-                var weapon = InstantiateWeapon(item);
-
-                AddWeaponToHand(weapon);
+                switch (item.ItemType)
+                {
+                    case ItemType.Action:
+                        var nuke = GetNuke(item.Loot);
+                        nuke.Action();
+                        break;
+                    case ItemType.Collectable:
+                        BehaviourUtils.DestroyAllChilds(handObject.transform);
+                        var weapon = InstantiateWeapon(item.Loot);
+                        AddWeaponToHand(weapon);
+                        break;
+                    default:
+                        throw new ArgumentOutOfRangeException(nameof(item.ItemType));
+                }
 
                 Destroy(other.gameObject);
             }
@@ -45,22 +57,14 @@ namespace Behaviours.Player
             return weapon;
         }
 
-        private GameObject GetWeaponItem(Collider collider)
+        private Nuke GetNuke(GameObject other)
         {
-            var item = collider.gameObject.GetComponent<WeaponItem>();
+            var nuke = other.gameObject.GetComponent<Nuke>();
 
-            if (item == null)
-                throw new ArgumentException("No item object found");
+            if (nuke == null)
+                throw new ArgumentException("No nuke object found");
 
-            return item.Item;
-        }
-
-        private void DestroyAllChilds(Transform transformLocal)
-        {
-            foreach (Transform child in transformLocal)
-            {
-                Destroy(child.gameObject);
-            }
+            return nuke;
         }
     }
 }

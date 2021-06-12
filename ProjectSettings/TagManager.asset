@@ -9,6 +9,7 @@ TagManager:
   - Enemy
   - Loot
   - Weapon
+  - Nuke
   layers:
   - Default
   - TransparentFX

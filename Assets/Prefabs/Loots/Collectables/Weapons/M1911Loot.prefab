@@ -452,7 +452,7 @@ GameObject:
   - component: {fileID: -9104131708520758196}
   - component: {fileID: 675657239745833279}
   m_Layer: 0
-  m_Name: M1911
+  m_Name: M1911Loot
   m_TagString: Loot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -499,7 +499,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95c3d5ef872f4dd3a5a9322ff18b7704, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item: {fileID: 558899047430866811, guid: 6f1a7354265853f44b0ed5e2e43676ad, type: 3}
+  loot: {fileID: 558899047430866811, guid: 6f1a7354265853f44b0ed5e2e43676ad, type: 3}
+  lootTag: 6
+  itemType: 1
 --- !u!95 &675657239745833279
 Animator:
   serializedVersion: 3
