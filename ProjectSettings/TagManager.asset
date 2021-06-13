@@ -8,6 +8,7 @@ TagManager:
   - DamageImage
   - Enemy
   - Loot
+  - PowerUpPanel
   layers:
   - Default
   - TransparentFX
