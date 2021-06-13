@@ -95,6 +95,8 @@ namespace Behaviours.Enemy
         {
             _navMeshAgent.enabled = false;
             _isSinking = true;
+            if (GameManager.DoublePointsEnable)
+                scoreValue *= 2;
             ScoreManager.Score += scoreValue;
             KillManager.Kills++;
             Destroy(gameObject, sinkTime);
