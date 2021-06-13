@@ -1,12 +1,12 @@
-using System;
 using System.Collections;
+using System.Collections.Generic;
 using Behaviours.Managers;
 using Enums;
 using UnityEngine;
 
 namespace Behaviours.Actions
 {
-    public class InstaKillAction : ActionBehaviour
+    public class DoublePointsAction : ActionBehaviour
     {
         [SerializeField] [Range(0.1f, 100)] private float time = 10f;
         [SerializeField] private GameObject powerUpImage;
@@ -14,18 +14,18 @@ namespace Behaviours.Actions
 
         public override void Execute()
         {
-            StartCoroutine(EnableInstaKill());
+            StartCoroutine(EnableDoublePoints());
         }
 
-        private IEnumerator EnableInstaKill()
+        private IEnumerator EnableDoublePoints()
         {
             _powerUpPanel = GameObject.FindGameObjectWithTag(Tag.PowerUpPanel.ToString());
-            GameManager.InstaKillEnable = true;
+            GameManager.DoublePointsEnable = true;
             var powerUp = Instantiate(powerUpImage, _powerUpPanel.transform);
 
             yield return new WaitForSeconds(time);
 
-            GameManager.InstaKillEnable = false;
+            GameManager.DoublePointsEnable = false;
             Destroy(gameObject);
             Destroy(powerUp);
         }
