@@ -2157,6 +2157,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 468023065, guid: fa1bd9d5a9727c343bc227be091b7663, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -80
+      objectReference: {fileID: 0}
+    - target: {fileID: 468023065, guid: fa1bd9d5a9727c343bc227be091b7663, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -42
+      objectReference: {fileID: 0}
     - target: {fileID: 759495571, guid: fa1bd9d5a9727c343bc227be091b7663, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
