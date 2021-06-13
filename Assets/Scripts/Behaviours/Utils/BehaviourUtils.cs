@@ -11,5 +11,6 @@ namespace Behaviours.Utils
                 Destroy(child.gameObject);
             }
         }
+        
     }
 }

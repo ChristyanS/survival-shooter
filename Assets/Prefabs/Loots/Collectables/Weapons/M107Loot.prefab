@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 2731068075638850760}
   - component: {fileID: 2731068075637753352}
   - component: {fileID: -7661161795724086303}
-  - component: {fileID: -1075423636568247823}
   - component: {fileID: 1132050043}
+  - component: {fileID: 9160246888859597465}
   m_Layer: 0
   m_Name: M107Loot
   m_TagString: Loot
@@ -100,21 +100,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.08889365, y: 0.4152832, z: 2.4704766}
   m_Center: {x: 0, y: -0.07614839, z: 0.16209316}
---- !u!114 &-1075423636568247823
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2731068075640019144}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 95c3d5ef872f4dd3a5a9322ff18b7704, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  loot: {fileID: 920844463563208395, guid: 7359baf27e84aa44cafac3788c8be0f1, type: 3}
-  lootTag: 6
-  itemType: 1
 --- !u!95 &1132050043
 Animator:
   serializedVersion: 3
@@ -134,6 +119,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &9160246888859597465
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2731068075640019144}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc1556d7d0bc47309638a9ee93e26aef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  loot: {fileID: 920844463563208395, guid: 7359baf27e84aa44cafac3788c8be0f1, type: 3}
 --- !u!1 &2731068075640019146
 GameObject:
   m_ObjectHideFlags: 0

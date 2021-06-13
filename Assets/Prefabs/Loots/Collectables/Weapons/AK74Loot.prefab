@@ -256,7 +256,7 @@ GameObject:
   - component: {fileID: 3008760121767765670}
   - component: {fileID: 3008760121770065604}
   - component: {fileID: 1672737815486949067}
-  - component: {fileID: -4770047919959432554}
+  - component: {fileID: -3652545337906693186}
   m_Layer: 0
   m_Name: AK74Loot
   m_TagString: Loot
@@ -362,7 +362,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.06756477, y: 0.33353695, z: 1.5414512}
   m_Center: {x: 0.0035153385, y: -0.07242501, z: 0.12519422}
---- !u!114 &-4770047919959432554
+--- !u!114 &-3652545337906693186
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -371,9 +371,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3008760121770031206}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 95c3d5ef872f4dd3a5a9322ff18b7704, type: 3}
+  m_Script: {fileID: 11500000, guid: fc1556d7d0bc47309638a9ee93e26aef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   loot: {fileID: 5014567267177933091, guid: ee329c3cd08e58645834d20702d7f6c6, type: 3}
-  lootTag: 6
-  itemType: 1

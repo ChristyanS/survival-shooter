@@ -174,11 +174,11 @@ GameObject:
   - component: {fileID: 947835985467423311}
   - component: {fileID: 947835985468226159}
   - component: {fileID: 947835985469323439}
-  - component: {fileID: 6914965858964686835}
   - component: {fileID: 6825703173643620017}
   - component: {fileID: 2039424438}
+  - component: {fileID: 5557237393382113935}
   m_Layer: 0
-  m_Name: Nuke
+  m_Name: NukeLoot
   m_TagString: Loot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -248,21 +248,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &6914965858964686835
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 947835985467123311}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 95c3d5ef872f4dd3a5a9322ff18b7704, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  loot: {fileID: 4653872484291243260, guid: 187dfed8f9a0d754e8c918d1482b2337, type: 3}
-  lootTag: 7
-  itemType: 0
 --- !u!136 &6825703173643620017
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -296,3 +281,16 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &5557237393382113935
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 947835985467123311}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ef4320efb104967a89181d4552925fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  loot: {fileID: 4653872484291243260, guid: 187dfed8f9a0d754e8c918d1482b2337, type: 3}
