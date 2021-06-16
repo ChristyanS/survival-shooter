@@ -20,7 +20,7 @@ namespace Behaviours.Enemy
 
             if (items.Any(o => o.GetComponent<Collider>() == null))
                 throw new ArgumentException($"All items must have collider");
-            
+
             if (items.Any(o => !o.GetComponent<Collider>().isTrigger))
                 throw new ArgumentException("All collider must be trigger");
         }
@@ -29,7 +29,8 @@ namespace Behaviours.Enemy
         {
             if (CanDropItem())
             {
-                Instantiate(items[Random.Range(0, items.Count)], transform.position,
+                var localPosition = transform.position;
+                Instantiate(items[Random.Range(0, items.Count)], new Vector3(localPosition.x, 0, localPosition.z),
                     Quaternion.identity);
             }
         }

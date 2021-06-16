@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 25992828}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 22.05, y: 0, z: -30.720001}
+  m_LocalPosition: {x: 27.94, y: 1, z: -36.26}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1314194332821162127}
@@ -54,7 +54,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 526527503}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -16.21, y: -0.52, z: -7.8999996}
+  m_LocalPosition: {x: -8.4, y: 1, z: -37.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1314194332821162127}
@@ -84,7 +84,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 881686421}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -13.310001, y: 0, z: 9.28}
+  m_LocalPosition: {x: -8.44, y: 1, z: 6.58}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1314194332821162127}
@@ -138,7 +138,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2257b2345eb5c7c45bd550807be5de2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 41834086014004178, guid: b372a8dc96fbcfa41896ed5e3fc65e7b, type: 3}
+  enemy: {fileID: 9056351503123907103, guid: f0e07b09b71c53842a25ce8892616b73, type: 3}
   spawnPoints:
   - {fileID: 881686422}
   - {fileID: 526527504}
@@ -156,7 +156,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2257b2345eb5c7c45bd550807be5de2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 3614308920133137740, guid: 1bbc48514a37cae4291bd5eb24b3e21b, type: 3}
+  enemy: {fileID: 915547705042526798, guid: d3f7e92229b33134b8091104321c95a0, type: 3}
   spawnPoints:
   - {fileID: 881686422}
   - {fileID: 526527504}
@@ -174,7 +174,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2257b2345eb5c7c45bd550807be5de2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 6368388700074760345, guid: fcd1a614bd5f530468edc645164f93fd, type: 3}
+  enemy: {fileID: 7842780183302926919, guid: 070408f1504686d468b1dce22a244b33, type: 3}
   spawnPoints:
   - {fileID: 881686422}
   - {fileID: 526527504}
