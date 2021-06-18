@@ -20,6 +20,8 @@ namespace Behaviours.Enemy
         private NavMeshAgent _navMeshAgent;
         private EnemyDrop _enemyDrop;
         private AudioSource _audioSource;
+        private Animator _animator;
+        private static readonly int Die = Animator.StringToHash("Die");
         public bool IsAlive => _currentHealth > 0;
 
 
@@ -30,6 +32,7 @@ namespace Behaviours.Enemy
             _enemyDrop = GetComponent<EnemyDrop>();
             _audioSource = GetComponent<AudioSource>();
             _hitParticles = GetComponentInChildren<ParticleSystem>();
+            _animator = GetComponent<Animator>();
             _currentHealth = startingHealth;
             Validate();
         }
@@ -85,13 +88,13 @@ namespace Behaviours.Enemy
         {
             _isDead = true;
             _capsuleCollider.isTrigger = true;
-            StartSinking();
+            _animator.SetTrigger(Die);
             _enemyDrop.Drop();
             _audioSource.clip = deathClip;
             _audioSource.Play();
         }
 
-        private void StartSinking()
+        public void StartSinking()
         {
             _navMeshAgent.enabled = false;
             _isSinking = true;
