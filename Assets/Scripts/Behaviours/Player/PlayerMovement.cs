@@ -13,12 +13,14 @@ namespace Behaviours.Player
         private int _floorLayerMaskValue;
 
         private Vector3 _movement;
-
+        private Animator _animator;
+        private static readonly int IsWalking = Animator.StringToHash("IsWalking");
 
         private void Awake()
         {
             _characterController = GetComponent<CharacterController>();
             _floorLayerMaskValue = LayerMask.GetMask(Layer.Ground.ToString());
+            _animator = GetComponent<Animator>();
             _camera = UnityEngine.Camera.main;
 
             Validate();
@@ -26,8 +28,11 @@ namespace Behaviours.Player
 
         private void Update()
         {
-            Move(Input.GetAxisRaw(Axis.Horizontal.ToString()), Input.GetAxisRaw(Axis.Vertical.ToString()));
+            var horizontal = Input.GetAxisRaw(Axis.Horizontal.ToString());
+            var vertical = Input.GetAxisRaw(Axis.Vertical.ToString());
+            Move(horizontal, vertical);
             Turning();
+            Animating (horizontal, vertical);
         }
 
         private void Validate()
@@ -46,6 +51,7 @@ namespace Behaviours.Player
             _movement = _movement.normalized * (speed * Time.deltaTime);
 
             _characterController.Move(_movement);
+            
         }
 
         private void Turning()
@@ -60,6 +66,13 @@ namespace Behaviours.Player
                 var newRotation = Quaternion.LookRotation(playerToMouse);
                 transform.rotation = newRotation;
             }
+        }
+        
+        void Animating (float horizontal, float vertical)
+        {
+            var walking = horizontal != 0f || vertical != 0f;
+
+            _animator.SetBool (IsWalking, walking);
         }
     }
 }

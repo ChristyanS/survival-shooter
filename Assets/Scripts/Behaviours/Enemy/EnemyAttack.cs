@@ -15,6 +15,8 @@ namespace Behaviours.Enemy
         private bool _isPlayerInRange;
         private GameObject _player;
         private PlayerHealth _playerHealth;
+        private Animator _animator;
+        private static readonly int Idle = Animator.StringToHash("Idle");
         private bool CanAttack => _isPlayerInRange && !_isAttacking && _enemyHealth.IsAlive;
 
         private void Start()
@@ -22,6 +24,7 @@ namespace Behaviours.Enemy
             _player = GameObject.FindGameObjectWithTag(Tag.Player.ToString());
             _playerHealth = _player.GetComponent<PlayerHealth>();
             _enemyHealth = GetComponent<EnemyHealth>();
+            _animator = GetComponent<Animator>();
             Validate();
         }
 
@@ -29,6 +32,8 @@ namespace Behaviours.Enemy
         {
             if (CanAttack)
                 StartCoroutine(Attack());
+            if (!_playerHealth.IsAlive)
+                _animator.SetTrigger(Idle);
         }
 
         private void OnTriggerEnter(Collider other)

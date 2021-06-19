@@ -19,6 +19,8 @@ namespace Behaviours.Player
         private bool _isDead;
         private PlayerMovement _playerMovement;
         private AudioSource _audioSource;
+        private Animator _animator;
+        private static readonly int Die = Animator.StringToHash("Die");
         public bool IsAlive => _currentHealth > 0;
 
         private void Start()
@@ -28,6 +30,7 @@ namespace Behaviours.Player
             _damageImage = GameObject.FindGameObjectWithTag(Tag.DamageImage.ToString()).GetComponent<Image>();
             _playerMovement = GetComponent<PlayerMovement>();
             _audioSource = GetComponent<AudioSource>();
+            _animator = GetComponent<Animator>();
 
             Validate();
 
@@ -73,6 +76,7 @@ namespace Behaviours.Player
         private void Death()
         {
             _isDead = true;
+            _animator.SetTrigger(Die);
             _playerMovement.enabled = false;
             _audioSource.clip = deathClip;
             _audioSource.Play();
