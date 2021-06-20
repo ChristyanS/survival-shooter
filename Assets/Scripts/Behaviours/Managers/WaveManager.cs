@@ -1,37 +1,49 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace Behaviours.Managers
 {
-    public class WaveManager : MonoBehaviour
+    public class WaveManager : Singleton<WaveManager>
     {
-        public Text waveCount;
-        private static int _waveNumber;
-        private static int _enemiesNumber;
-        public static int EnemiesSpawned;
-        public static int DeadEnemies;
-        public static bool AllEnemiesDie => DeadEnemies >= _enemiesNumber;
-        public static bool SpawnedAllEnemies => EnemiesSpawned <= _enemiesNumber;
+        [SerializeField] private Text waveCountText;
+        [SerializeField] [Range(1, 100)] private int waveNumber = 1;
+        [SerializeField] [Range(1, 1000)] private int enemiesNumber = 20;
+        [SerializeField] [Range(1, 100)] private int enemiesNumberIncrease = 2;
+        private int _deadEnemies;
+        private int _enemiesSpawned;
+        public bool AllEnemiesDie => _deadEnemies >= enemiesNumber;
+        public bool SpawnedAllEnemies => _enemiesSpawned <= enemiesNumber;
 
         private void Start()
         {
-            _waveNumber = 1;
-            _enemiesNumber = 20;
-            EnemiesSpawned = 0;
-            DeadEnemies = 0;
+            if (waveCountText == null)
+                throw new ArgumentException("No text count found");
         }
 
         private void Update()
         {
-            waveCount.text = _waveNumber.ToString();
+            waveCountText.text = waveNumber.ToString();
         }
 
-        public static void NextWave()
+        private void NextWave()
         {
-            _waveNumber++;
-            _enemiesNumber += 2;
-            EnemiesSpawned = 0;
-            DeadEnemies = 0;
+            waveNumber++;
+            enemiesNumber += enemiesNumberIncrease;
+            _enemiesSpawned = 0;
+            _deadEnemies = 0;
+        }
+
+        public void AddDeadEnemies()
+        {
+            _deadEnemies++;
+            if (AllEnemiesDie)
+                NextWave();
+        }
+
+        public void AddEnemySpawned()
+        {
+            _enemiesSpawned++;
         }
     }
 }

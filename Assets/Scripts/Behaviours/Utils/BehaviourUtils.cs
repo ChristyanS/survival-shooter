@@ -6,11 +6,7 @@ namespace Behaviours.Utils
     {
         public static void DestroyAllChilds(Transform transformLocal)
         {
-            foreach (Transform child in transformLocal)
-            {
-                Destroy(child.gameObject);
-            }
+            foreach (Transform child in transformLocal) Destroy(child.gameObject);
         }
-        
     }
 }

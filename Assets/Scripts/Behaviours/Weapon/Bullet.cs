@@ -22,16 +22,11 @@ namespace Behaviours.Gun
             {
                 var enemyHealth = other.gameObject.GetComponent<EnemyHealth>();
 
-                if (enemyHealth != null)
-                {
-                    enemyHealth.TakeDamage(_damage);
-                }
+                if (enemyHealth != null) enemyHealth.TakeDamage(_damage);
             }
 
             if (other.gameObject.layer == LayerMask.NameToLayer(Layer.Shootable.ToString()) && !other.isTrigger)
-            {
                 Destroy(gameObject);
-            }
         }
 
         public void Setup(Vector3 shootDirection, float speed, int damage)

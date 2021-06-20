@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using Behaviours.Managers;
 using Enums;
 using UnityEngine;
@@ -20,12 +19,12 @@ namespace Behaviours.Actions
         private IEnumerator EnableDoublePoints()
         {
             _powerUpPanel = GameObject.FindGameObjectWithTag(Tag.PowerUpPanel.ToString());
-            GameManager.DoublePointsEnable = true;
+            GameManager.Instance.DoublePointsEnable = true;
             var powerUp = Instantiate(powerUpImage, _powerUpPanel.transform);
 
             yield return new WaitForSeconds(time);
 
-            GameManager.DoublePointsEnable = false;
+            GameManager.Instance.DoublePointsEnable = false;
             Destroy(gameObject);
             Destroy(powerUp);
         }

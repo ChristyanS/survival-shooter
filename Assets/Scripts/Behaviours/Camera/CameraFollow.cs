@@ -15,9 +15,9 @@ namespace Behaviours.Camera
             _offset = transform.position - _playerTransform.position;
         }
 
-        void Update()
+        private void Update()
         {
-            Vector3 targetCamPos = _playerTransform.position + _offset;
+            var targetCamPos = _playerTransform.position + _offset;
 
             transform.position = Vector3.Lerp(transform.position, targetCamPos, smoothing * Time.deltaTime);
         }

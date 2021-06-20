@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Behaviours.Managers
 {
-    public class MouseManager : MonoBehaviour
+    public class MouseManager : Singleton<MouseManager>
     {
         [SerializeField] private Texture2D mouseTexture;
 

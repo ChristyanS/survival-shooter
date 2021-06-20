@@ -7,14 +7,14 @@ namespace Behaviours.Player
     public class PlayerMovement : MonoBehaviour
     {
         private const float CamRayLenght = 100f;
+        private static readonly int IsWalking = Animator.StringToHash("IsWalking");
         [SerializeField] [Range(1, 20)] private float speed = 6f;
+        private Animator _animator;
         private UnityEngine.Camera _camera;
         private CharacterController _characterController;
         private int _floorLayerMaskValue;
 
         private Vector3 _movement;
-        private Animator _animator;
-        private static readonly int IsWalking = Animator.StringToHash("IsWalking");
 
         private void Awake()
         {
@@ -32,7 +32,7 @@ namespace Behaviours.Player
             var vertical = Input.GetAxisRaw(Axis.Vertical.ToString());
             Move(horizontal, vertical);
             Turning();
-            Animating (horizontal, vertical);
+            Animating(horizontal, vertical);
         }
 
         private void Validate()
@@ -51,7 +51,6 @@ namespace Behaviours.Player
             _movement = _movement.normalized * (speed * Time.deltaTime);
 
             _characterController.Move(_movement);
-            
         }
 
         private void Turning()
@@ -67,12 +66,12 @@ namespace Behaviours.Player
                 transform.rotation = newRotation;
             }
         }
-        
-        void Animating (float horizontal, float vertical)
+
+        private void Animating(float horizontal, float vertical)
         {
             var walking = horizontal != 0f || vertical != 0f;
 
-            _animator.SetBool (IsWalking, walking);
+            _animator.SetBool(IsWalking, walking);
         }
     }
 }

@@ -31,7 +31,9 @@ namespace Behaviours.Enemy
                     _navMeshAgent.SetDestination(_playerTransform.position);
             }
             else
+            {
                 _navMeshAgent.enabled = false;
+            }
         }
 
         private void Validate()

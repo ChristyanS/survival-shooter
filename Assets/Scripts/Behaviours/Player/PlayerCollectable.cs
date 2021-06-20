@@ -8,12 +8,6 @@ namespace Behaviours.Player
     {
         [SerializeField] private GameObject handObject;
 
-        private void OnValidate()
-        {
-            if (handObject == null)
-                throw new ArgumentException("No hand object found");
-        }
-
         private void OnTriggerEnter(Collider other)
         {
             if (other.CompareTag(Tag.Loot.ToString()))
@@ -23,6 +17,12 @@ namespace Behaviours.Player
 
                 Destroy(other.gameObject);
             }
+        }
+
+        private void OnValidate()
+        {
+            if (handObject == null)
+                throw new ArgumentException("No hand object found");
         }
     }
 }

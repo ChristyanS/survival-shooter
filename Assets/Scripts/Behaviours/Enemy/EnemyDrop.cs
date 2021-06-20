@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using Enums;
 using UnityEngine;
-using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
 namespace Behaviours.Enemy
@@ -16,10 +15,10 @@ namespace Behaviours.Enemy
         private void OnValidate()
         {
             if (items.Any(o => !o.CompareTag(Tag.Loot.ToString())))
-                throw new ArgumentException($"All items must have loot tag");
+                throw new ArgumentException("All items must have loot tag");
 
             if (items.Any(o => o.GetComponent<Collider>() == null))
-                throw new ArgumentException($"All items must have collider");
+                throw new ArgumentException("All items must have collider");
 
             if (items.Any(o => !o.GetComponent<Collider>().isTrigger))
                 throw new ArgumentException("All collider must be trigger");

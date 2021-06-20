@@ -8,15 +8,15 @@ namespace Behaviours.Enemy
 {
     public class EnemyAttack : MonoBehaviour
     {
+        private static readonly int Idle = Animator.StringToHash("Idle");
         [SerializeField] [Range(0.1f, 10)] private float timeBetweenAttacks = 0.5f;
         [SerializeField] [Range(1, 200)] private int attackDamage = 10;
+        private Animator _animator;
         private EnemyHealth _enemyHealth;
         private bool _isAttacking;
         private bool _isPlayerInRange;
         private GameObject _player;
         private PlayerHealth _playerHealth;
-        private Animator _animator;
-        private static readonly int Idle = Animator.StringToHash("Idle");
         private bool CanAttack => _isPlayerInRange && !_isAttacking && _enemyHealth.IsAlive;
 
         private void Start()
@@ -38,18 +38,12 @@ namespace Behaviours.Enemy
 
         private void OnTriggerEnter(Collider other)
         {
-            if (other.gameObject == _player)
-            {
-                _isPlayerInRange = true;
-            }
+            if (other.gameObject == _player) _isPlayerInRange = true;
         }
 
         private void OnTriggerExit(Collider other)
         {
-            if (other.gameObject == _player)
-            {
-                _isPlayerInRange = false;
-            }
+            if (other.gameObject == _player) _isPlayerInRange = false;
         }
 
         private void Validate()

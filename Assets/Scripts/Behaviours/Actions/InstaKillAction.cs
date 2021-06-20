@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using Behaviours.Managers;
 using Enums;
@@ -20,12 +19,12 @@ namespace Behaviours.Actions
         private IEnumerator EnableInstaKill()
         {
             _powerUpPanel = GameObject.FindGameObjectWithTag(Tag.PowerUpPanel.ToString());
-            GameManager.InstaKillEnable = true;
+            GameManager.Instance.InstaKillEnable = true;
             var powerUp = Instantiate(powerUpImage, _powerUpPanel.transform);
 
             yield return new WaitForSeconds(time);
 
-            GameManager.InstaKillEnable = false;
+            GameManager.Instance.InstaKillEnable = false;
             Destroy(gameObject);
             Destroy(powerUp);
         }

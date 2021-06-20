@@ -1,13 +1,12 @@
 using System;
-using UnityEngine;
 using UnityEngine.UI;
 
 namespace Behaviours.Managers
 {
-    public class KillManager : MonoBehaviour
+    public class KillManager : Singleton<KillManager>
     {
-        public static int Kills;
         private Text _text;
+        private int Kills;
 
         private void Start()
         {
@@ -19,6 +18,11 @@ namespace Behaviours.Managers
         private void Update()
         {
             _text.text = Kills.ToString();
+        }
+
+        public void AddKill()
+        {
+            Kills++;
         }
 
         private void Validate()

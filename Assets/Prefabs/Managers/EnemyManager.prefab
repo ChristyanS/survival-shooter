@@ -193,4 +193,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5377eb5513bb4c618ffe1d0a95dd768f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waveCount: {fileID: 0}
+  waveCountText: {fileID: 0}
+  waveNumber: 1
+  enemiesNumber: 20
+  enemiesNumberIncrease: 2
