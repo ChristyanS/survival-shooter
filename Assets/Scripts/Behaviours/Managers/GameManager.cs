@@ -1,10 +1,8 @@
-using UnityEngine;
-
 namespace Behaviours.Managers
 {
-    public class GameManager : MonoBehaviour
+    public class GameManager : Singleton<GameManager>
     {
-        public static bool InstaKillEnable { get; set; }
-        public static bool DoublePointsEnable { get; set; }
+        public bool InstaKillEnable { get; set; }
+        public bool DoublePointsEnable { get; set; }
     }
 }

@@ -7,10 +7,13 @@ namespace Behaviours.Player
 {
     public class PlayerHealth : MonoBehaviour
     {
+        private static readonly int Die = Animator.StringToHash("Die");
         [SerializeField] [Range(1, 200)] private int startingHealth = 100;
         [SerializeField] [Range(1, 10)] private float flashSpeed = 5f;
         [SerializeField] private Color flashColour = new Color(1f, 0f, 0f, 0.1f);
         [SerializeField] public AudioClip deathClip;
+        private Animator _animator;
+        private AudioSource _audioSource;
 
         private int _currentHealth;
         private Image _damageImage;
@@ -18,9 +21,6 @@ namespace Behaviours.Player
         private bool _isDamaged;
         private bool _isDead;
         private PlayerMovement _playerMovement;
-        private AudioSource _audioSource;
-        private Animator _animator;
-        private static readonly int Die = Animator.StringToHash("Die");
         public bool IsAlive => _currentHealth > 0;
 
         private void Start()
@@ -67,10 +67,7 @@ namespace Behaviours.Player
             _healthSlider.value = _currentHealth;
             _audioSource.Play();
 
-            if (!IsAlive && !_isDead)
-            {
-                Death();
-            }
+            if (!IsAlive && !_isDead) Death();
         }
 
         private void Death()

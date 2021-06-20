@@ -7,13 +7,12 @@ using Random = UnityEngine.Random;
 
 namespace Behaviours.Managers
 {
+    [RequireComponent(typeof(GameObject))]
     public class EnemyManager : MonoBehaviour
     {
         [SerializeField] private GameObject enemy;
         [SerializeField] private Transform[] spawnPoints;
         [SerializeField] [Range(1, 100)] private float spawnTime = 3f;
-        
-
         private PlayerHealth _playerHealth;
 
 
@@ -44,14 +43,13 @@ namespace Behaviours.Managers
         {
             if (_playerHealth.IsAlive)
             {
-                WaveManager.EnemiesSpawned++;
-                if (WaveManager.SpawnedAllEnemies)
+                WaveManager.Instance.AddEnemySpawned();
+                if (WaveManager.Instance.SpawnedAllEnemies)
                 {
                     var spawnPointIndex = Random.Range(0, spawnPoints.Length);
                     Instantiate(enemy, spawnPoints[spawnPointIndex].position, spawnPoints[spawnPointIndex].rotation);
                 }
             }
         }
-
     }
 }

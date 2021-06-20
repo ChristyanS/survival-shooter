@@ -593,6 +593,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be9b6a295f394fa39f1844d8adac7023, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Kills: 0
 --- !u!1 &1348219970
 GameObject:
   m_ObjectHideFlags: 0
@@ -1041,7 +1042,6 @@ GameObject:
   - component: {fileID: 8740143931275657966}
   - component: {fileID: 3179490161912648639}
   - component: {fileID: 4834722639863130015}
-  - component: {fileID: 8273753016053762438}
   m_Layer: 5
   m_Name: Wave Text
   m_TagString: Untagged
@@ -1109,7 +1109,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 0
+  m_Text: 1
 --- !u!114 &4834722639863130015
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1125,18 +1125,6 @@ MonoBehaviour:
   m_EffectColor: {r: 0, g: 0, b: 0, a: 0.6862745}
   m_EffectDistance: {x: 3.9, y: -2.17}
   m_UseGraphicAlpha: 1
---- !u!114 &8273753016053762438
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1109958302787807430}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be9b6a295f394fa39f1844d8adac7023, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &7234491059419150733
 GameObject:
   m_ObjectHideFlags: 0

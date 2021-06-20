@@ -7,21 +7,21 @@ namespace Behaviours.Enemy
 {
     public class EnemyHealth : MonoBehaviour
     {
+        private static readonly int Die = Animator.StringToHash("Die");
         [SerializeField] [Range(1, 200)] private int startingHealth = 100;
         [SerializeField] [Range(1, 20)] private float sinkSpeed = 2.5f;
         [SerializeField] [Range(0, 5)] private float sinkTime = 2;
         [SerializeField] [Range(0, 200)] private int scoreValue = 10;
         [SerializeField] private AudioClip deathClip;
+        private Animator _animator;
+        private AudioSource _audioSource;
         private CapsuleCollider _capsuleCollider;
-        private ParticleSystem _hitParticles;
         private int _currentHealth;
+        private EnemyDrop _enemyDrop;
+        private ParticleSystem _hitParticles;
         private bool _isDead;
         private bool _isSinking;
         private NavMeshAgent _navMeshAgent;
-        private EnemyDrop _enemyDrop;
-        private AudioSource _audioSource;
-        private Animator _animator;
-        private static readonly int Die = Animator.StringToHash("Die");
         public bool IsAlive => _currentHealth > 0;
 
 
@@ -39,10 +39,7 @@ namespace Behaviours.Enemy
 
         private void Update()
         {
-            if (_isSinking)
-            {
-                transform.Translate(-Vector3.up * (sinkSpeed * Time.deltaTime));
-            }
+            if (_isSinking) transform.Translate(-Vector3.up * (sinkSpeed * Time.deltaTime));
         }
 
         private void Validate()
@@ -68,14 +65,11 @@ namespace Behaviours.Enemy
                 _audioSource.Play();
 
                 _hitParticles.Play();
-                if (GameManager.InstaKillEnable)
+                if (GameManager.Instance.InstaKillEnable)
                     _currentHealth = 0;
                 else
                     _currentHealth -= amount;
-                if (!IsAlive)
-                {
-                    Death();
-                }
+                if (!IsAlive) Death();
             }
         }
 
@@ -92,9 +86,9 @@ namespace Behaviours.Enemy
             _enemyDrop.Drop();
             _audioSource.clip = deathClip;
             _audioSource.Play();
-            WaveManager.DeadEnemies++;
-            if (WaveManager.AllEnemiesDie)
-                WaveManager.NextWave();
+            WaveManager.Instance.AddDeadEnemies();
+            ScoreManager.Instance.AddScore(scoreValue);
+            KillManager.Instance.AddKill();
         }
 
         // used in animation events
@@ -102,10 +96,6 @@ namespace Behaviours.Enemy
         {
             _navMeshAgent.enabled = false;
             _isSinking = true;
-            if (GameManager.DoublePointsEnable)
-                scoreValue *= 2;
-            ScoreManager.Score += scoreValue;
-            KillManager.Kills++;
             Destroy(gameObject, sinkTime);
         }
     }

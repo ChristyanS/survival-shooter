@@ -15,8 +15,8 @@ namespace Behaviours.Gun
         [SerializeField] [Range(1, 1000)] private int damage = 10;
         private AudioSource _audioSource;
         private Light _gunLight;
+        private ParticleSystem _gunParticles;
         private bool _isShooting;
-        private ParticleSystem _gunParticles;  
         private bool CanShooting => Input.GetButton(Axis.Fire1.ToString()) && !_isShooting;
 
         private void Start()
@@ -29,10 +29,7 @@ namespace Behaviours.Gun
 
         private void Update()
         {
-            if (CanShooting)
-            {
-                StartCoroutine(Shoot());
-            }
+            if (CanShooting) StartCoroutine(Shoot());
         }
 
         private void Validate()
@@ -49,9 +46,9 @@ namespace Behaviours.Gun
         {
             _gunLight.enabled = true;
             _isShooting = true;
-            _audioSource.Play ();
-            _gunParticles.Stop ();
-            _gunParticles.Play ();
+            _audioSource.Play();
+            _gunParticles.Stop();
+            _gunParticles.Play();
             var direction = transform;
             var bulletInstantiate = Instantiate(bullet, direction.position, direction.rotation);
 

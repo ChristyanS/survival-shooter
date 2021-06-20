@@ -9,10 +9,7 @@ namespace Behaviours.Actions
         public override void Execute()
         {
             var enemies = GameObject.FindGameObjectsWithTag(Tag.Enemy.ToString());
-            foreach (var enemy in enemies)
-            {
-                enemy.GetComponent<EnemyHealth>().TakeDamage();
-            }
+            foreach (var enemy in enemies) enemy.GetComponent<EnemyHealth>().TakeDamage();
         }
     }
 }
