@@ -5315,6 +5315,7 @@ MonoBehaviour:
   - {fileID: 947835985467123311, guid: 53b1f8c913ac2b64699d9478e6bb8dfe, type: 3}
   - {fileID: 4267647381623406186, guid: 888e8057a54d59b43acb86fd1de1fa3c, type: 3}
   - {fileID: 4151572284769307209, guid: 4bac1aacc92656a4cb5205d2a955f00b, type: 3}
+  - {fileID: 1000012970591572, guid: 7cafb89b5a0f61f479d0a748962abbbc, type: 3}
   dropPercentage: 10
 --- !u!195 &-8765179529860139335
 NavMeshAgent:

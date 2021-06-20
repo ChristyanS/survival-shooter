@@ -70,6 +70,14 @@ namespace Behaviours.Player
             if (!IsAlive && !_isDead) Death();
         }
 
+        public void AddHealth(int health)
+        {
+            _currentHealth += health;
+            if (_currentHealth > startingHealth)
+                _currentHealth = startingHealth;
+            _healthSlider.value = _currentHealth;
+        }
+
         private void Death()
         {
             _isDead = true;
