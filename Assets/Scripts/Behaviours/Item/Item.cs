@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using Enums;
 using UnityEngine;
 
@@ -6,9 +7,16 @@ namespace Behaviours.Item
 {
     public abstract class Item : MonoBehaviour
     {
+        private const float TimeToDestroy = 40;
         [SerializeField] private GameObject loot;
+
         protected GameObject Loot => loot;
         public abstract ItemType ItemType { get; }
+
+        private void Start()
+        {
+            StartCoroutine(Destroy());
+        }
 
         private void OnValidate()
         {
@@ -17,6 +25,12 @@ namespace Behaviours.Item
 
             if (!gameObject.CompareTag(Tag.Loot.ToString()))
                 throw new ArgumentException("All item must have loot tag");
+        }
+
+        private IEnumerator Destroy()
+        {
+            yield return new WaitForSeconds(TimeToDestroy);
+            Destroy(gameObject);
         }
 
         public abstract void Execute(GameObject other = null);
