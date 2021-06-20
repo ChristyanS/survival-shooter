@@ -92,8 +92,12 @@ namespace Behaviours.Enemy
             _enemyDrop.Drop();
             _audioSource.clip = deathClip;
             _audioSource.Play();
+            WaveManager.DeadEnemies++;
+            if (WaveManager.AllEnemiesDie)
+                WaveManager.NextWave();
         }
 
+        // used in animation events
         public void StartSinking()
         {
             _navMeshAgent.enabled = false;
