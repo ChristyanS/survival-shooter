@@ -5,24 +5,24 @@ namespace Behaviours.Managers
 {
     public class KillManager : Singleton<KillManager>
     {
+        private int _kills;
         private Text _text;
-        private int Kills;
 
         private void Start()
         {
             _text = GetComponent<Text>();
-            Kills = 0;
+            _kills = 0;
             Validate();
         }
 
         private void Update()
         {
-            _text.text = Kills.ToString();
+            _text.text = _kills.ToString();
         }
 
         public void AddKill()
         {
-            Kills++;
+            _kills++;
         }
 
         private void Validate()
