@@ -1,10 +1,12 @@
 using System;
 using System.Collections;
+using Behaviours.Gun;
+using Behaviours.Player;
 using Enums;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-namespace Behaviours.Gun
+namespace Behaviours.Weapon
 {
     public class Weapon : MonoBehaviour
     {
@@ -17,13 +19,16 @@ namespace Behaviours.Gun
         private Light _gunLight;
         private ParticleSystem _gunParticles;
         private bool _isShooting;
-        private bool CanShooting => Input.GetButton(Axis.Fire1.ToString()) && !_isShooting;
+        private PlayerHealth _playerHealth;
+        private bool CanShooting => Input.GetButton(Axis.Fire1.ToString()) && !_isShooting && _playerHealth.IsAlive;
 
         private void Start()
         {
             _gunLight = GetComponent<Light>();
             _audioSource = GetComponent<AudioSource>();
             _gunParticles = GetComponent<ParticleSystem>();
+            var player = GameObject.FindGameObjectWithTag(Tag.Player.ToString());
+            _playerHealth = player.GetComponent<PlayerHealth>();
             Validate();
         }
 
@@ -40,6 +45,8 @@ namespace Behaviours.Gun
                 throw new ArgumentException("No audio source found");
             if (_gunParticles == null)
                 throw new ArgumentException("No particle system is found");
+            if (_playerHealth == null)
+                throw new ArgumentException("No player health found");
         }
 
         private IEnumerator Shoot()

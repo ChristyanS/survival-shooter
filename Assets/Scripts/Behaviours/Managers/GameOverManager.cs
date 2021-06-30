@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 namespace Behaviours.Managers
 {
-    public class GameOverManager : Singleton<GameOverManager>
+    public class GameOverManager : MonoBehaviour
     {
         private static readonly int GameOver = Animator.StringToHash("GameOver");
         private Animator _animator;
