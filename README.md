@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://unform.dev">
-    <img src="https://user-images.githubusercontent.com/21977794/119066820-017c2900-b9b7-11eb-9494-c99dedd64aed.gif" alt="Work in Progress" />
+    <img src="https://im2.ezgif.com/tmp/ezgif-2-15ee408472a2.gif" alt="In Game" />
   </a>
 </p>
 <h4 align="center"> 
