@@ -5138,6 +5138,10 @@ PrefabInstance:
       propertyPath: waveCountText
       value: 
       objectReference: {fileID: 7234491059152895903}
+    - target: {fileID: 1350313043, guid: 0707d496545dbdd46a83675e8c98ed0d, type: 3}
+      propertyPath: enemiesNumberIncrease
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 1314194332821162126, guid: 0707d496545dbdd46a83675e8c98ed0d, type: 3}
       propertyPath: m_Name
       value: EnemyManager
@@ -5185,6 +5189,10 @@ PrefabInstance:
     - target: {fileID: 1314194332821162127, guid: 0707d496545dbdd46a83675e8c98ed0d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1314194332821162128, guid: 0707d496545dbdd46a83675e8c98ed0d, type: 3}
+      propertyPath: spawnTime
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0707d496545dbdd46a83675e8c98ed0d, type: 3}
@@ -5252,10 +5260,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 21733317, guid: fa1bd9d5a9727c343bc227be091b7663, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 759495571, guid: fa1bd9d5a9727c343bc227be091b7663, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0

@@ -247,7 +247,7 @@ MonoBehaviour:
   bullet: {fileID: 3210402101948336768, guid: 5ffa900b724fcc34ea09d77a65ac3ea2, type: 3}
   timeBetweenBullets: 1
   recoil: 0.001
-  speed: 60
+  speed: 48
   damage: 50
 --- !u!82 &-2856481370934555980
 AudioSource:
