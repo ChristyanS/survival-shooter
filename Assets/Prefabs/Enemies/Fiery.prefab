@@ -5276,8 +5276,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24b41a11502c47b797f435715cc537be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeBetweenAttacks: 1
-  attackDamage: 10
+  timeBetweenAttacks: 0.5
+  attackDamage: 12
 --- !u!114 &2772934850531807023
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5290,7 +5290,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 218468036d65436db3e2a73421cb0e64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingHealth: 75
+  startingHealth: 25
   sinkSpeed: 2.5
   sinkTime: 2
   scoreValue: 10
@@ -5316,7 +5316,7 @@ MonoBehaviour:
   - {fileID: 4267647381623406186, guid: 888e8057a54d59b43acb86fd1de1fa3c, type: 3}
   - {fileID: 4151572284769307209, guid: 4bac1aacc92656a4cb5205d2a955f00b, type: 3}
   - {fileID: 1000012970591572, guid: 7cafb89b5a0f61f479d0a748962abbbc, type: 3}
-  dropPercentage: 10
+  dropPercentage: 2
 --- !u!195 &-8765179529860139335
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -5327,7 +5327,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.3
-  m_Speed: 3
+  m_Speed: 5
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
