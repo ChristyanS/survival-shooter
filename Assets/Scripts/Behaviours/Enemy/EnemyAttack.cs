@@ -9,6 +9,7 @@ namespace Behaviours.Enemy
     public class EnemyAttack : MonoBehaviour
     {
         private static readonly int Idle = Animator.StringToHash("Idle");
+        private static readonly int IsAttack = Animator.StringToHash("Attack");
         [SerializeField] [Range(0.1f, 10)] private float timeBetweenAttacks = 0.5f;
         [SerializeField] [Range(1, 200)] private int attackDamage = 10;
         private Animator _animator;
@@ -71,9 +72,9 @@ namespace Behaviours.Enemy
             if (_playerHealth.IsAlive)
                 _playerHealth.TakeDamage(attackDamage);
             _isAttacking = true;
-
+            _animator.SetBool(IsAttack, true);
             yield return new WaitForSeconds(timeBetweenAttacks);
-
+            _animator.SetBool(IsAttack, false);
             _isAttacking = false;
         }
     }
