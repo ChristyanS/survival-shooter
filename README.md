@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://unform.dev">
-    <img src="https://im2.ezgif.com/tmp/ezgif-2-15ee408472a2.gif" alt="In Game" />
+    <img src="https://github.com/ChristyanS/survival-shooter/blob/main/Assets/Art/Gifs/survival%20shooter.gif?raw=true" alt="In Game" />
   </a>
 </p>
 <h4 align="center"> 
