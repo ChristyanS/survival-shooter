@@ -40,7 +40,14 @@ jobs:
       - name: Add msbuild to PATH
         uses: microsoft/setup-msbuild@v1.0.3
         
-      - name: Build and analyze
+      - name: Unity - Builder 🔨
+        uses: game-ci/unity-builder@v2.0-aplha-5
+        with:
+            unityVersion: 2020.2.1f1
+            targetPlatform: StandaloneWindows64
+            kubeVolumeSize: 8Gi
+            
+      - name: List directory
         shell: powershell
         run: |
           dir 
