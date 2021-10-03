@@ -14,13 +14,18 @@ jobs:
           lfs: true
           fetch-depth: 0
 
-      - name: Setup sonarqube
-        uses: warchant/setup-sonar-scanner@v3
-      - name: Run sonarqube
+      - name: Sonarscanner for dotnet
+        uses: Secbyte/dotnet-sonarscanner@v2.3
+        with:
+          buildCommand: dotnet build .
+          testCommand: dotnet test .
+          projectKey: ChristyanS_survival-shooter
+          projectName: survival-shooter
+          sonarOrganisation: christyansantos
+          beginArguments: >
+            /d:sonar.verbose="true"
+            /d:sonar.cs.opencover.reportsPaths='"/path/to/coverage.xml","/path/to/coverage.2.xml"'
+            /d:sonar.coverage.exclusions='"**/*.cs","**/*.md"'
         env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: sonar-scanner
-          -Dsonar.login=${{ secrets.SONAR_TOKEN }}
-          -Dsonar.organization=christyansantos
-          -Dsonar.host.url=https://sonarcloud.io/
-          -Dsonar.projectKey=ChristyanS_survival-shooter
