@@ -41,15 +41,18 @@ jobs:
           unityVersion: 2020.2.1f1
           githubToken: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: SonarCloud - Scan 🔍
-        uses: sonarsource/sonarcloud-github-action@master
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+      - name: Sonarscanner for dotnet
+        uses: Secbyte/dotnet-sonarscanner@v1.2
         with:
-          args: >
-            -Dsonar.organization=${{ secrets.SONAR_ORGANIZATION_KEY }}
-            -Dsonar.projectKey=${{ secrets.SONAR_PROJECT_KEY }}
+          buildCommand: dotnet build .
+          testCommand: dotnet test .
+          projectKey: ChristyanS_survival-shooter
+          projectName: survival-shooter
+          sonarOrganisation: christyansantos
+          beginArguments: /d:sonar.verbose="true" /d:sonar.cs.opencover.reportsPaths="/path/to/coverage.xml" /d:sonar.coverage.exclusions="**/*.cs"
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   release-project:
     name: Create Release 📦

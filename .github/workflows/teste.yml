@@ -19,4 +19,4 @@ jobs:
       - name: List directory
         shell: powershell
         run: |
-          dir 
+          ls 

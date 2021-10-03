@@ -1,4 +1,6 @@
-public class HelloWorld
+using UnityEngine;
+
+public class HelloWorld : MonoBehaviour
 {
     public bool Test()
     {
