@@ -14,14 +14,13 @@ jobs:
           lfs: true
           fetch-depth: 0
 
-      - name: Unit Tests 🧪
-        uses: game-ci/unity-test-runner@v2
-        with:
-          unityVersion: 2020.2.1f1
-          githubToken: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: SonarCloud Scan 🔍
-        uses: sonarsource/sonarcloud-github-action@master
+      - name: Setup sonarqube
+        uses: warchant/setup-sonar-scanner@v3
+      - name: Run sonarqube
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        run: sonar-scanner
+          -Dsonar.login=${{ secrets.SONAR_TOKEN }}
+          -Dsonar.organization=christyansantos
+          -Dsonar.host.url=https://sonarcloud.io/
+          -Dsonar.projectKey=ChristyanS_survival-shooter
