@@ -2,6 +2,7 @@ namespace Enums
 {
     public enum Tag
     {
+        MainCamera = 0,
         Player = 1,
         Health = 2,
         DamageImage = 3,

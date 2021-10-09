@@ -2,7 +2,7 @@ using Behaviours.Enemy;
 using Enums;
 using UnityEngine;
 
-namespace Behaviours.Gun
+namespace Behaviours.Weapon
 {
     public class Bullet : MonoBehaviour
     {

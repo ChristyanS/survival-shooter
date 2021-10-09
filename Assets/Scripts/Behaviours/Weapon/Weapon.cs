@@ -1,6 +1,5 @@
 using System;
 using System.Collections;
-using Behaviours.Gun;
 using Behaviours.Player;
 using Enums;
 using UnityEngine;
