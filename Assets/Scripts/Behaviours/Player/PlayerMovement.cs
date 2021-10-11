@@ -45,6 +45,8 @@ namespace Behaviours.Player
                 throw new ArgumentException("No camera setup found to this scene");
             if (_characterController == null)
                 throw new ArgumentException("No character controller found");
+            if (_animator == null)
+                throw new ArgumentException("No animator is found");
         }
 
         private void Move(float horizontalAxis, float verticalAxis)

@@ -1,4 +1,5 @@
 using Behaviours.Player;
+using Enums;
 using Interfaces.Managers;
 using UnityEngine;
 
@@ -7,12 +8,11 @@ namespace Test.Builders.Behaviours.Player
     public class PlayerMovementBuilder
     {
         private readonly GameObject _gameObject;
-        private readonly PlayerMovement _playerMovement;
+        private PlayerMovement _playerMovement;
 
         public PlayerMovementBuilder()
         {
             _gameObject = new GameObject();
-            _playerMovement = _gameObject.AddComponent<PlayerMovement>();
         }
 
         public PlayerMovementBuilder WithVirtualInputManager(IVirtualInputManager virtualInputManager)
@@ -21,16 +21,29 @@ namespace Test.Builders.Behaviours.Player
             return this;
         }
 
-        public PlayerMovementBuilder WithCharacterController()
+        public PlayerMovementBuilder AddCharacterController()
         {
             _gameObject.AddComponent<CharacterController>();
             return this;
         }
 
-
-        public PlayerMovement Build()
+        public PlayerMovementBuilder AddMainCamera()
         {
-            return _playerMovement;
+            new CameraBuilder().Build().WithTag(Tag.MainCamera.ToString());
+            return this;
+        }
+
+        public PlayerMovementBuilder AddAnimator()
+        {
+            _gameObject.AddComponent<Animator>();
+            return this;
+        }
+
+
+        public PlayerMovementBuilder Build()
+        {
+            _playerMovement = _gameObject.AddComponent<PlayerMovement>();
+            return this;
         }
     }
 }
