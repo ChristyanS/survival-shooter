@@ -3,6 +3,7 @@ using Behaviours.Managers;
 using Test.Builders.Behaviours.Player;
 using UnityEngine;
 using UnityEngine.TestTools;
+using Utils;
 
 namespace Test.PlayMode.Player
 {
@@ -52,6 +53,13 @@ namespace Test.PlayMode.Player
             new PlayerMovementBuilder().AddMainCamera().AddCharacterController().AddAnimator().Build();
 
             yield return null;
+        }
+
+        [UnityTearDown]
+        public IEnumerator TearDown()
+        {
+            yield return new ExitPlayMode();
+            ObjectUtils.DestroyAll<GameObject>();
         }
     }
 }
