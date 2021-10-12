@@ -1,5 +1,8 @@
 using System.Collections;
 using Behaviours.Managers;
+using Interfaces.Managers;
+using Moq;
+using NUnit.Framework;
 using Test.Builders.Behaviours.Player;
 using UnityEngine;
 using UnityEngine.TestTools;
@@ -9,12 +12,15 @@ namespace Test.PlayMode.Player
 {
     public class PlayerMovementTest
     {
+        private Mock<IVirtualInputManager> _virtualInputManager;
+
         [UnitySetUp]
         public IEnumerator SetUp()
         {
             yield return new EnterPlayMode();
             LogAssert.ignoreFailingMessages = true;
             new GameObject().AddComponent<VirtualInputInputManager>();
+            _virtualInputManager = new Mock<IVirtualInputManager>();
         }
 
         [UnityTest]
@@ -48,11 +54,37 @@ namespace Test.PlayMode.Player
         }
 
         [UnityTest]
-        public IEnumerator Awake_WhenCharacterMoveVertically_ShouldMoveCharacter()
+        public IEnumerator Update_WhenCharacterMove_ShouldMoveCharacter()
         {
-            new PlayerMovementBuilder().AddMainCamera().AddCharacterController().AddAnimator().Build();
+            var playerMovementBuilder = new PlayerMovementBuilder().AddMainCamera().AddCharacterController()
+                .AddAnimator().Build()
+                .WithVirtualInputManager(_virtualInputManager.Object);
+
+            const int horizontalAxis = 1;
+            const int verticalAxis = 1;
+            _virtualInputManager.SetupGet(virtualInput => virtualInput.HorizontalAxis).Returns(horizontalAxis);
+            _virtualInputManager.SetupGet(virtualInput => virtualInput.VerticalAxis).Returns(verticalAxis);
 
             yield return null;
+
+            var transform = new Vector3(horizontalAxis, 0, verticalAxis).normalized *
+                            (playerMovementBuilder.PlayerMovement.Speed * Time.deltaTime);
+
+            Assert.AreEqual(transform, playerMovementBuilder.GameObject.transform.position);
+        }
+
+        [UnityTest]
+        public IEnumerator Update_WhenRotateCharacter_ShouldRotateCharacter()
+        {
+            var playerMovementBuilder = new PlayerMovementBuilder().AddMainCamera().AddCharacterController()
+                .AddAnimator().Build()
+                .WithVirtualInputManager(_virtualInputManager.Object);
+
+            _virtualInputManager.SetupGet(virtualInput => virtualInput.MousePosition).Returns(Vector3.zero);
+
+            yield return null;
+
+            Assert.AreEqual(Vector3.zero, playerMovementBuilder.GameObject.transform.position);
         }
 
         [UnityTearDown]

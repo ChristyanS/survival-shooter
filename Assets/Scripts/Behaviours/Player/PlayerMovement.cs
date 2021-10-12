@@ -15,6 +15,7 @@ namespace Behaviours.Player
         private CharacterController _characterController;
         private int _floorLayerMaskValue;
         private Vector3 _movement;
+        public float Speed => speed;
         public IVirtualInputManager VirtualInputInputManager { get; set; } //todo ver como usar esse cara private set
 
         private void Awake()
@@ -59,7 +60,7 @@ namespace Behaviours.Player
 
         private void Turning()
         {
-            var cameraRay = _camera.ScreenPointToRay(Input.mousePosition);
+            var cameraRay = _camera.ScreenPointToRay(VirtualInputInputManager.MousePosition);
 
             if (Physics.Raycast(cameraRay, out var floorHit, CamRayLenght, _floorLayerMaskValue))
             {

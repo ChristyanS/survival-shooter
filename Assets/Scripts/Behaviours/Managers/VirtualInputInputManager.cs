@@ -8,5 +8,6 @@ namespace Behaviours.Managers
     {
         public float HorizontalAxis => Input.GetAxisRaw(Axis.Horizontal.ToString());
         public float VerticalAxis => Input.GetAxisRaw(Axis.Vertical.ToString());
+        public Vector3 MousePosition => Input.mousePosition;
     }
 }

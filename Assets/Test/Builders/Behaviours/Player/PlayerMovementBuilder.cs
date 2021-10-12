@@ -7,23 +7,23 @@ namespace Test.Builders.Behaviours.Player
 {
     public class PlayerMovementBuilder
     {
-        private readonly GameObject _gameObject;
-        private PlayerMovement _playerMovement;
-
         public PlayerMovementBuilder()
         {
-            _gameObject = new GameObject();
+            GameObject = new GameObject();
         }
+
+        public GameObject GameObject { get; }
+        public PlayerMovement PlayerMovement { get; private set; }
 
         public PlayerMovementBuilder WithVirtualInputManager(IVirtualInputManager virtualInputManager)
         {
-            _playerMovement.VirtualInputInputManager = virtualInputManager;
+            PlayerMovement.VirtualInputInputManager = virtualInputManager;
             return this;
         }
 
         public PlayerMovementBuilder AddCharacterController()
         {
-            _gameObject.AddComponent<CharacterController>();
+            GameObject.AddComponent<CharacterController>();
             return this;
         }
 
@@ -35,14 +35,14 @@ namespace Test.Builders.Behaviours.Player
 
         public PlayerMovementBuilder AddAnimator()
         {
-            _gameObject.AddComponent<Animator>();
+            GameObject.AddComponent<Animator>();
             return this;
         }
 
 
         public PlayerMovementBuilder Build()
         {
-            _playerMovement = _gameObject.AddComponent<PlayerMovement>();
+            PlayerMovement = GameObject.AddComponent<PlayerMovement>();
             return this;
         }
     }
