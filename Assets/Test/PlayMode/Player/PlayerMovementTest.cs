@@ -1,5 +1,4 @@
 using System.Collections;
-using Behaviours.Managers;
 using Interfaces.Managers;
 using Moq;
 using NUnit.Framework;
@@ -19,14 +18,13 @@ namespace Test.PlayMode.Player
         {
             yield return new EnterPlayMode();
             LogAssert.ignoreFailingMessages = true;
-            new GameObject().AddComponent<VirtualInputInputManager>();
             _virtualInputManager = new Mock<IVirtualInputManager>();
         }
 
         [UnityTest]
         public IEnumerator Awake_WhenNoCameraSetupIsFound_ThrowsArgumentException()
         {
-            new PlayerMovementBuilder().Build();
+            new PlayerMovementBuilder().AddVirtualInputManager().Build();
 
             LogAssert.Expect(LogType.Exception, "ArgumentException: No camera setup found to this scene");
 
@@ -36,7 +34,7 @@ namespace Test.PlayMode.Player
         [UnityTest]
         public IEnumerator Awake_WhenNoCharacterControllerIsFound_ThrowsArgumentException()
         {
-            new PlayerMovementBuilder().AddMainCamera().Build();
+            new PlayerMovementBuilder().AddVirtualInputManager().AddMainCamera().Build();
 
             LogAssert.Expect(LogType.Exception, "ArgumentException: No character controller found");
 
@@ -46,7 +44,7 @@ namespace Test.PlayMode.Player
         [UnityTest]
         public IEnumerator Awake_WhenNoAnimatorIsFound_ThrowsArgumentException()
         {
-            new PlayerMovementBuilder().AddMainCamera().AddCharacterController().Build();
+            new PlayerMovementBuilder().AddVirtualInputManager().AddMainCamera().AddCharacterController().Build();
 
             LogAssert.Expect(LogType.Exception, "ArgumentException: No animator is found");
 
@@ -56,7 +54,8 @@ namespace Test.PlayMode.Player
         [UnityTest]
         public IEnumerator Update_WhenCharacterMove_ShouldMoveCharacter()
         {
-            var playerMovementBuilder = new PlayerMovementBuilder().AddMainCamera().AddCharacterController()
+            var playerMovementBuilder = new PlayerMovementBuilder().AddVirtualInputManager().AddMainCamera()
+                .AddCharacterController()
                 .AddAnimator().Build() as PlayerMovementBuilder;
 
             playerMovementBuilder?.WithVirtualInputManager(_virtualInputManager.Object);

@@ -14,10 +14,12 @@ namespace Behaviours.Player
         [SerializeField] public AudioClip deathClip;
         private Animator _animator;
 
-        private Slider _healthSlider;
+        public Slider HealthSlider { get; private set; }
 
-        private bool _isDead;
-        private PlayerMovement _playerMovement;
+        public bool IsDead { get; private set; }
+
+        public PlayerMovement PlayerMovement { get; private set; }
+
         public int StartingHealth => startingHealth;
         public Color FlashColour => flashColour;
         public AudioSource AudioSource { get; private set; }
@@ -31,15 +33,15 @@ namespace Behaviours.Player
         private void Start()
         {
             CurrentHealth = startingHealth;
-            _healthSlider = GameObject.FindGameObjectWithTag(Tag.Health.ToString()).GetComponent<Slider>();
+            HealthSlider = GameObject.FindGameObjectWithTag(Tag.Health.ToString()).GetComponent<Slider>();
             DamageImage = GameObject.FindGameObjectWithTag(Tag.DamageImage.ToString()).GetComponent<Image>();
-            _playerMovement = GetComponent<PlayerMovement>();
+            PlayerMovement = GetComponent<PlayerMovement>();
             AudioSource = GetComponent<AudioSource>();
             _animator = GetComponent<Animator>();
 
             Validate();
 
-            _healthSlider.maxValue = startingHealth;
+            HealthSlider.maxValue = startingHealth;
         }
 
         private void Update()
@@ -56,11 +58,11 @@ namespace Behaviours.Player
 
         private void Validate()
         {
-            if (_healthSlider == null)
+            if (HealthSlider == null)
                 throw new ArgumentException("No Slider is found");
             if (DamageImage == null)
                 throw new ArgumentException("No damage image found");
-            if (_playerMovement == null)
+            if (PlayerMovement == null)
                 throw new ArgumentException("No player movement found");
             if (AudioSource == null)
                 throw new ArgumentException("No AudioSource found");
@@ -72,10 +74,10 @@ namespace Behaviours.Player
         {
             IsDamaged = true;
             CurrentHealth -= amount;
-            _healthSlider.value = CurrentHealth;
+            HealthSlider.value = CurrentHealth;
             AudioSource.Play();
 
-            if (!IsAlive && !_isDead) Death();
+            if (!IsAlive && !IsDead) Death();
         }
 
         public void AddHealth(int health)
@@ -83,14 +85,14 @@ namespace Behaviours.Player
             CurrentHealth += health;
             if (CurrentHealth > startingHealth)
                 CurrentHealth = startingHealth;
-            _healthSlider.value = CurrentHealth;
+            HealthSlider.value = CurrentHealth;
         }
 
         private void Death()
         {
-            _isDead = true;
+            IsDead = true;
             _animator.SetTrigger(Die);
-            _playerMovement.enabled = false;
+            PlayerMovement.enabled = false;
             AudioSource.clip = deathClip;
             AudioSource.Play();
         }

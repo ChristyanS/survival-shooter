@@ -24,7 +24,8 @@ namespace Test.Builders.Behaviours.Player
 
         public PlayerHealthBuilder AddAudioSource()
         {
-            new GameObjectBuilder<AudioSource>(GameObject).Build();
+            new GameObjectBuilder<AudioSource>(GameObject).Build().Component.clip =
+                AudioClip.Create("Player Hurt", 1, 1, 1000, true, null, null);
             return this;
         }
 
