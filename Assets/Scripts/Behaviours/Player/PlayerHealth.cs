@@ -39,21 +39,24 @@ namespace Behaviours.Player
 
         private void Update()
         {
-            _damageImage.color = _isDamaged
-                ? flashColour
-                : Color.Lerp(_damageImage.color, Color.clear, flashSpeed * Time.deltaTime);
+            if (_damageImage)
+            {
+                _damageImage.color = _isDamaged
+                    ? flashColour
+                    : Color.Lerp(_damageImage.color, Color.clear, flashSpeed * Time.deltaTime);
 
-            _isDamaged = false;
+                _isDamaged = false;
+            }
         }
 
         private void Validate()
         {
             if (_healthSlider == null)
                 throw new ArgumentException("No Slider is found");
-            if (_playerMovement == null)
-                throw new ArgumentException("No player movement found");
             if (_damageImage == null)
                 throw new ArgumentException("No damage image found");
+            if (_playerMovement == null)
+                throw new ArgumentException("No player movement found");
             if (_audioSource == null)
                 throw new ArgumentException("No AudioSource found");
             if (deathClip == null)
