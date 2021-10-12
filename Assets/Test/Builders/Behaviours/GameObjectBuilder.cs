@@ -18,6 +18,12 @@ namespace Test.Builders.Behaviours
 
         public GameObject GameObject { get; }
 
+        public GameObjectBuilder<T> SetActive(bool active)
+        {
+            GameObject.SetActive(active);
+            return this;
+        }
+
         public GameObjectBuilder<T> Build()
         {
             Component = GameObject.AddComponent<T>();
