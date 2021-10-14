@@ -1,5 +1,6 @@
 using System;
 using Enums;
+using Interfaces.Managers;
 using UnityEngine;
 
 namespace Behaviours.Player
@@ -13,8 +14,9 @@ namespace Behaviours.Player
         private UnityEngine.Camera _camera;
         private CharacterController _characterController;
         private int _floorLayerMaskValue;
-
         private Vector3 _movement;
+        public float Speed => speed;
+        public IVirtualInputManager VirtualInputInputManager { get; set; } //todo ver como usar esse cara private set
 
         private void Awake()
         {
@@ -22,14 +24,15 @@ namespace Behaviours.Player
             _floorLayerMaskValue = LayerMask.GetMask(Layer.Ground.ToString());
             _animator = GetComponent<Animator>();
             _camera = UnityEngine.Camera.main;
+            VirtualInputInputManager ??= Managers.VirtualInputInputManager.Instance;
 
             Validate();
         }
 
         private void Update()
         {
-            var horizontal = Input.GetAxisRaw(Axis.Horizontal.ToString());
-            var vertical = Input.GetAxisRaw(Axis.Vertical.ToString());
+            var horizontal = VirtualInputInputManager.HorizontalAxis;
+            var vertical = VirtualInputInputManager.VerticalAxis;
             Move(horizontal, vertical);
             Turning();
             Animating(horizontal, vertical);
@@ -37,12 +40,14 @@ namespace Behaviours.Player
 
         private void Validate()
         {
-            if (_floorLayerMaskValue == (int) Layer.Default)
+            if (_floorLayerMaskValue == (int)Layer.Default)
                 throw new ArgumentException("No specific layer is found");
             if (!(_camera is { }))
                 throw new ArgumentException("No camera setup found to this scene");
             if (_characterController == null)
                 throw new ArgumentException("No character controller found");
+            if (_animator == null)
+                throw new ArgumentException("No animator is found");
         }
 
         private void Move(float horizontalAxis, float verticalAxis)
@@ -55,7 +60,7 @@ namespace Behaviours.Player
 
         private void Turning()
         {
-            var cameraRay = _camera.ScreenPointToRay(Input.mousePosition);
+            var cameraRay = _camera.ScreenPointToRay(VirtualInputInputManager.MousePosition);
 
             if (Physics.Raycast(cameraRay, out var floorHit, CamRayLenght, _floorLayerMaskValue))
             {
