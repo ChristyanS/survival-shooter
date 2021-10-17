@@ -15,8 +15,7 @@ namespace Behaviours.Item
                 Instantiate(Loot, new Vector3(),
                     new Quaternion()); //todo deve ter alguma forma de fazer isso aqui sem ter que instanciar o objecto, para eu conseguir dar start em uma corrotina
 
-            var action = GetAction(instance);
-            action.Execute();
+            GetAction(instance).Execute();
         }
 
         private static ActionBehaviour GetAction(GameObject other)

@@ -15,6 +15,11 @@ namespace Test.Builders.Behaviours.Player
         {
         }
 
+        public PlayerHealthBuilder(string name) : base(name)
+        {
+        }
+
+
         public PlayerHealthBuilder AddPlayerMovement()
         {
             new PlayerMovementBuilder(GameObject).AddMainCamera().AddCharacterController().AddVirtualInputManager()

@@ -8,8 +8,23 @@ namespace Behaviours.Actions
     public class DoublePointsAction : ActionBehaviour
     {
         [SerializeField] [Range(0.1f, 100)] private float time = 10f;
+
         [SerializeField] private GameObject powerUpImage;
-        private GameObject _powerUpPanel;
+
+        public float Time
+        {
+            get => time;
+            set => time = value;
+        }
+
+        public GameObject PowerUpImage
+        {
+            get => powerUpImage;
+            set => powerUpImage = value;
+        }
+
+        public GameObject PowerUpPanel { get; private set; }
+
 
         public override void Execute()
         {
@@ -18,9 +33,9 @@ namespace Behaviours.Actions
 
         private IEnumerator EnableDoublePoints()
         {
-            _powerUpPanel = GameObject.FindGameObjectWithTag(Tag.PowerUpPanel.ToString());
+            PowerUpPanel = GameObject.FindGameObjectWithTag(Tag.PowerUpPanel.ToString());
             GameManager.Instance.DoublePointsEnable = true;
-            var powerUp = Instantiate(powerUpImage, _powerUpPanel.transform);
+            var powerUp = Instantiate(powerUpImage, PowerUpPanel.transform);
 
             yield return new WaitForSeconds(time);
 

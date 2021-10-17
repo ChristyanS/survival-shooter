@@ -9,6 +9,11 @@ namespace Test.Builders.Behaviours
             GameObject = new GameObject();
         }
 
+        public GameObjectBuilder(string name)
+        {
+            GameObject = new GameObject(name);
+        }
+
         public GameObjectBuilder(GameObject gameObject)
         {
             GameObject = gameObject;
