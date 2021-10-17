@@ -74,9 +74,8 @@ namespace Behaviours.Player
 
         private void Animating(float horizontal, float vertical)
         {
-            var walking = horizontal != 0f || vertical != 0f;
-
-            _animator.SetBool(IsWalking, walking);
+            _animator.SetFloat("horizontal", horizontal);
+            _animator.SetFloat("vertical", vertical);
         }
     }
 }

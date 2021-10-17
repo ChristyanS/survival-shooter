@@ -9,6 +9,7 @@ namespace Behaviours.Weapon
 {
     public class Weapon : MonoBehaviour
     {
+        private static readonly int IsShooting = Animator.StringToHash("isShooting");
         [SerializeField] private Transform bullet;
         [SerializeField] [Range(0.001f, 2)] private float timeBetweenBullets = 0.15f;
         [SerializeField] [Range(0.001f, 1)] private float recoil = 0.2f;
@@ -18,7 +19,9 @@ namespace Behaviours.Weapon
         private Light _gunLight;
         private ParticleSystem _gunParticles;
         private bool _isShooting;
+        private Animator _playerAnimator;
         private PlayerHealth _playerHealth;
+
         private bool CanShooting => Input.GetButton(Axis.Fire1.ToString()) && !_isShooting && _playerHealth.IsAlive;
 
         private void Start()
@@ -28,12 +31,19 @@ namespace Behaviours.Weapon
             _gunParticles = GetComponent<ParticleSystem>();
             var player = GameObject.FindGameObjectWithTag(Tag.Player.ToString());
             _playerHealth = player.GetComponent<PlayerHealth>();
+            _playerAnimator = player.GetComponent<Animator>();
             Validate();
         }
 
         private void Update()
         {
-            if (CanShooting) StartCoroutine(Shoot());
+            if (Input.GetButton(Axis.Fire1.ToString()))
+                _playerAnimator.SetBool(IsShooting, true);
+            else
+                _playerAnimator.SetBool(IsShooting, false);
+
+            if (CanShooting)
+                StartCoroutine(Shoot());
         }
 
         private void Validate()
