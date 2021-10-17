@@ -7,6 +7,7 @@ namespace Behaviours.Actions
     public class HealthAction : ActionBehaviour
     {
         [SerializeField] [Range(1, 100)] private int health = 10;
+        public int Health => health;
 
         public override void Execute()
         {
