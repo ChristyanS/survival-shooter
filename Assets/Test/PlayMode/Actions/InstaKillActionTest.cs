@@ -23,7 +23,7 @@ namespace Test.PlayMode.Actions
         }
 
         [UnityTest]
-        public IEnumerator Execute_WhenAnActionIsTrigger_ShouldBeEnableDoublePoints()
+        public IEnumerator Execute_WhenAnActionIsTrigger_ShouldBeEnableInstaKillAction()
         {
             var installKillActionBuilder = new InstaKillActionBuilder(nameof(InstaKillAction)).Build();
 
