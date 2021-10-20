@@ -1,80 +1,218 @@
 fileFormatVersion: 2
 guid: c256d06ac23fc304783b388694974f3e
 ModelImporter:
-  serializedVersion: 22
-  fileIDToRecycleName:
-    100000: //RootNode
-    100002: Rig
-    100004: RigHead
-    100006: RigJaw
-    100008: RigLArm1
-    100010: RigLArm1Gizmo
-    100012: RigLArm2
-    100014: RigLArm2Gizmo
-    100016: RigLArmPalm
-    100018: RigLArmPalmGizmo
-    100020: RigLLeg1
-    100022: RigLLeg2
-    100024: RigLLegAnkle
-    100026: RigLLegPlatform
-    100028: RigNeck1
-    100030: RigNeck2
-    100032: RigPelvis
-    100034: RigPelvisGizmo
-    100036: RigRArm1
-    100038: RigRArm1Gizmo
-    100040: RigRArm2
-    100042: RigRArm2Gizmo
-    100044: RigRArmPalm
-    100046: RigRArmPalmGizmo
-    100048: RigRibcage
-    100050: RigRibcageGizmo
-    100052: RigRLeg1
-    100054: RigRLeg2
-    100056: RigRLegAnkle
-    100058: RigRLegPlatform
-    100060: RigSpine1
-    100062: RigSpine2
-    100064: RigSpine3
-    400000: //RootNode
-    400002: Rig
-    400004: RigHead
-    400006: RigJaw
-    400008: RigLArm1
-    400010: RigLArm1Gizmo
-    400012: RigLArm2
-    400014: RigLArm2Gizmo
-    400016: RigLArmPalm
-    400018: RigLArmPalmGizmo
-    400020: RigLLeg1
-    400022: RigLLeg2
-    400024: RigLLegAnkle
-    400026: RigLLegPlatform
-    400028: RigNeck1
-    400030: RigNeck2
-    400032: RigPelvis
-    400034: RigPelvisGizmo
-    400036: RigRArm1
-    400038: RigRArm1Gizmo
-    400040: RigRArm2
-    400042: RigRArm2Gizmo
-    400044: RigRArmPalm
-    400046: RigRArmPalmGizmo
-    400048: RigRibcage
-    400050: RigRibcageGizmo
-    400052: RigRLeg1
-    400054: RigRLeg2
-    400056: RigRLegAnkle
-    400058: RigRLegPlatform
-    400060: RigSpine1
-    400062: RigSpine2
-    400064: RigSpine3
-    7400000: Attack 01
-    9500000: //RootNode
-    2186277476908879412: ImportLogs
+  serializedVersion: 20200
+  internalIDToNameTable:
+  - first:
+      1: 100000
+    second: //RootNode
+  - first:
+      1: 100002
+    second: Rig
+  - first:
+      1: 100004
+    second: RigHead
+  - first:
+      1: 100006
+    second: RigJaw
+  - first:
+      1: 100008
+    second: RigLArm1
+  - first:
+      1: 100010
+    second: RigLArm1Gizmo
+  - first:
+      1: 100012
+    second: RigLArm2
+  - first:
+      1: 100014
+    second: RigLArm2Gizmo
+  - first:
+      1: 100016
+    second: RigLArmPalm
+  - first:
+      1: 100018
+    second: RigLArmPalmGizmo
+  - first:
+      1: 100020
+    second: RigLLeg1
+  - first:
+      1: 100022
+    second: RigLLeg2
+  - first:
+      1: 100024
+    second: RigLLegAnkle
+  - first:
+      1: 100026
+    second: RigLLegPlatform
+  - first:
+      1: 100028
+    second: RigNeck1
+  - first:
+      1: 100030
+    second: RigNeck2
+  - first:
+      1: 100032
+    second: RigPelvis
+  - first:
+      1: 100034
+    second: RigPelvisGizmo
+  - first:
+      1: 100036
+    second: RigRArm1
+  - first:
+      1: 100038
+    second: RigRArm1Gizmo
+  - first:
+      1: 100040
+    second: RigRArm2
+  - first:
+      1: 100042
+    second: RigRArm2Gizmo
+  - first:
+      1: 100044
+    second: RigRArmPalm
+  - first:
+      1: 100046
+    second: RigRArmPalmGizmo
+  - first:
+      1: 100048
+    second: RigRibcage
+  - first:
+      1: 100050
+    second: RigRibcageGizmo
+  - first:
+      1: 100052
+    second: RigRLeg1
+  - first:
+      1: 100054
+    second: RigRLeg2
+  - first:
+      1: 100056
+    second: RigRLegAnkle
+  - first:
+      1: 100058
+    second: RigRLegPlatform
+  - first:
+      1: 100060
+    second: RigSpine1
+  - first:
+      1: 100062
+    second: RigSpine2
+  - first:
+      1: 100064
+    second: RigSpine3
+  - first:
+      4: 400000
+    second: //RootNode
+  - first:
+      4: 400002
+    second: Rig
+  - first:
+      4: 400004
+    second: RigHead
+  - first:
+      4: 400006
+    second: RigJaw
+  - first:
+      4: 400008
+    second: RigLArm1
+  - first:
+      4: 400010
+    second: RigLArm1Gizmo
+  - first:
+      4: 400012
+    second: RigLArm2
+  - first:
+      4: 400014
+    second: RigLArm2Gizmo
+  - first:
+      4: 400016
+    second: RigLArmPalm
+  - first:
+      4: 400018
+    second: RigLArmPalmGizmo
+  - first:
+      4: 400020
+    second: RigLLeg1
+  - first:
+      4: 400022
+    second: RigLLeg2
+  - first:
+      4: 400024
+    second: RigLLegAnkle
+  - first:
+      4: 400026
+    second: RigLLegPlatform
+  - first:
+      4: 400028
+    second: RigNeck1
+  - first:
+      4: 400030
+    second: RigNeck2
+  - first:
+      4: 400032
+    second: RigPelvis
+  - first:
+      4: 400034
+    second: RigPelvisGizmo
+  - first:
+      4: 400036
+    second: RigRArm1
+  - first:
+      4: 400038
+    second: RigRArm1Gizmo
+  - first:
+      4: 400040
+    second: RigRArm2
+  - first:
+      4: 400042
+    second: RigRArm2Gizmo
+  - first:
+      4: 400044
+    second: RigRArmPalm
+  - first:
+      4: 400046
+    second: RigRArmPalmGizmo
+  - first:
+      4: 400048
+    second: RigRibcage
+  - first:
+      4: 400050
+    second: RigRibcageGizmo
+  - first:
+      4: 400052
+    second: RigRLeg1
+  - first:
+      4: 400054
+    second: RigRLeg2
+  - first:
+      4: 400056
+    second: RigRLegAnkle
+  - first:
+      4: 400058
+    second: RigRLegPlatform
+  - first:
+      4: 400060
+    second: RigSpine1
+  - first:
+      4: 400062
+    second: RigSpine2
+  - first:
+      4: 400064
+    second: RigSpine3
+  - first:
+      74: 7400000
+    second: Attack 01
+  - first:
+      95: 9500000
+    second: //RootNode
+  - first:
+      41386430: 2186277476908879412
+    second: ImportLogs
   externalObjects: {}
   materials:
-    importMaterials: 1
+    materialImportMode: 1
     materialName: 0
     materialSearch: 1
     materialLocation: 1
@@ -88,8 +226,8 @@ ModelImporter:
     rigImportWarnings: 
     animationImportErrors: 
     animationImportWarnings: "\nClip 'Take 001' has import animation warnings that
-      might lower retargeting quality:\nNote: Activate translation DOF on avatar to
-      improve retargeting quality.\n\t'RigSpine1' is inbetween humanoid transforms
+      might lower retargeting quality:\nNote: Activate translation DOF on avatar
+      to improve retargeting quality.\n\t'RigSpine1' is inbetween humanoid transforms
       and has rotation animation that will be discarded.\n\t'RigSpine2' is inbetween
       humanoid transforms and has rotation animation that will be discarded.\n\t'RigSpine3'
       is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'RigNeck1'
@@ -109,6 +247,7 @@ ModelImporter:
     - serializedVersion: 16
       name: Attack 01
       takeName: Take 001
+      internalID: 0
       firstFrame: 0
       lastFrame: 25
       wrapMode: 0
@@ -129,7 +268,14 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: 0.3628809
+        functionName: Attack
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
@@ -140,21 +286,31 @@ ModelImporter:
     globalScale: 1
     meshCompression: 0
     addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
     importVisibility: 1
     importBlendShapes: 1
     importCameras: 1
     importLights: 1
+    fileIdsGeneration: 1
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
-    optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
+    bakeAxisConversion: 0
     preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
     indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 0
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
     secondaryUVPackMargin: 4
     useFileScale: 1
   tangentSpace:
@@ -162,10 +318,13 @@ ModelImporter:
     normalImportMode: 0
     tangentImportMode: 3
     normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 1
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
   importAnimation: 1
-  copyAvatar: 1
   humanDescription:
-    serializedVersion: 2
+    serializedVersion: 3
     human:
     - boneName: RigPelvis
       humanName: Hips
@@ -476,15 +635,17 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
+    globalScale: 1
     rootMotionBoneName: 
-    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 0
     hasExtraRoot: 1
     skeletonHasParents: 1
-  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: ab49f3cef633f1d4c84f8c46ec6c0b74,
-    type: 3}
+  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: ab49f3cef633f1d4c84f8c46ec6c0b74, type: 3}
+  autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 3
   humanoidOversampling: 1
+  avatarSetup: 2
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 0
   additionalBone: 0
   userData: 
   assetBundleName: 
