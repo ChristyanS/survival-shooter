@@ -12,13 +12,18 @@ namespace Behaviours.Enemy
         private static readonly int IsAttack = Animator.StringToHash("Attack");
         [SerializeField] [Range(0.1f, 10)] private float timeBetweenAttacks = 0.5f;
         [SerializeField] [Range(1, 200)] private int attackDamage = 10;
+        [SerializeField] [Range(0.5f, 5)] private float attackDistance = 2f;
         private Animator _animator;
         private EnemyHealth _enemyHealth;
         private bool _isAttacking;
-        private bool _isPlayerInRange;
+
         private GameObject _player;
         private PlayerHealth _playerHealth;
-        private bool CanAttack => _isPlayerInRange && !_isAttacking && _enemyHealth.IsAlive;
+
+        private bool IsPlayerInRange =>
+            Vector3.Distance(transform.position, _player.transform.position) < attackDistance;
+
+        private bool CanAttack => IsPlayerInRange && !_isAttacking && _enemyHealth.IsAlive;
 
         private void Start()
         {
@@ -32,19 +37,9 @@ namespace Behaviours.Enemy
         private void Update()
         {
             if (CanAttack)
-                StartCoroutine(Attack());
+                StartCoroutine(StartAttack());
             if (!_playerHealth.IsAlive)
                 _animator.SetTrigger(Idle);
-        }
-
-        private void OnTriggerEnter(Collider other)
-        {
-            if (other.gameObject == _player) _isPlayerInRange = true;
-        }
-
-        private void OnTriggerExit(Collider other)
-        {
-            if (other.gameObject == _player) _isPlayerInRange = false;
         }
 
         private void Validate()
@@ -55,27 +50,24 @@ namespace Behaviours.Enemy
             if (_playerHealth == null)
                 throw new ArgumentException("No player health found");
 
-            var sphereCollider = GetComponent<SphereCollider>();
-
-            if (sphereCollider == null)
-                throw new ArgumentException("No sphere collider found");
-
-            if (!sphereCollider.isTrigger)
-                throw new ArgumentException("Sphere collider is not a trigger");
-
             if (_enemyHealth == null)
                 throw new ArgumentException("No enemy health found");
         }
 
-        private IEnumerator Attack()
+        private IEnumerator StartAttack()
         {
-            if (_playerHealth.IsAlive)
-                _playerHealth.TakeDamage(attackDamage);
             _isAttacking = true;
             _animator.SetBool(IsAttack, true);
             yield return new WaitForSeconds(timeBetweenAttacks);
             _animator.SetBool(IsAttack, false);
             _isAttacking = false;
+        }
+
+        // used in animation events
+        private void Attack()
+        {
+            if (_playerHealth.IsAlive && IsPlayerInRange)
+                _playerHealth.TakeDamage(attackDamage);
         }
     }
 }
