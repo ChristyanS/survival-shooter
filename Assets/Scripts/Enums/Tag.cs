@@ -9,6 +9,7 @@ namespace Enums
         Enemy = 4,
         Loot = 5,
         PowerUpPanel = 6,
-        Weapon = 7
+        Weapon = 7,
+        Purchasable = 8
     }
 }

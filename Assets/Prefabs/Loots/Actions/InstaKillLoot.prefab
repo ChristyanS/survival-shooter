@@ -110,6 +110,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   loot: {fileID: 6018200420568895652, guid: 1459027864132a5458de92b37c1a0376, type: 3}
+  enableDestruction: 1
 --- !u!95 &9165000664607410452
 Animator:
   serializedVersion: 3
