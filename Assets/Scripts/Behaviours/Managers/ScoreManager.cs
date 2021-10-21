@@ -32,5 +32,18 @@ namespace Behaviours.Managers
                 score *= 2;
             _score += score;
         }
+
+        public void SubScore(int score)
+        {
+            if (CanSubtractScore(score))
+                _score -= score;
+            else
+                throw new ArgumentException("it is not possible to subtract the score ");
+        }
+
+        public bool CanSubtractScore(int score)
+        {
+            return _score - score >= 0;
+        }
     }
 }

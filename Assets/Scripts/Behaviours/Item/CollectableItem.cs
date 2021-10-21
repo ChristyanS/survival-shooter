@@ -13,19 +13,17 @@ namespace Behaviours.Item
         {
             if (other == null) throw new ArgumentNullException(nameof(other));
             _handObject = other;
-            var weapon = ActiveWeapon(Loot);
+            ActiveWeapon(Loot);
         }
 
 
-        private GameObject ActiveWeapon(GameObject item)
+        private void ActiveWeapon(GameObject item)
         {
             for (var i = 0; i < _handObject.transform.childCount; i++)
             {
                 var o = _handObject.transform.GetChild(i);
                 if (o.CompareTag(Tag.Weapon.ToString())) o.gameObject.SetActive(item.name == o.name);
             }
-
-            return null;
         }
     }
 }

@@ -9,13 +9,17 @@ namespace Behaviours.Item
     {
         private const float TimeToDestroy = 40;
         [SerializeField] private GameObject loot;
+        [SerializeField] private bool enableDestruction;
+        [SerializeField] [Range(1, 10000)] private int value;
+        public int Value => value;
 
         protected GameObject Loot => loot;
         public abstract ItemType ItemType { get; }
 
         private void Start()
         {
-            StartCoroutine(Destroy());
+            if (enableDestruction)
+                StartCoroutine(Destroy());
         }
 
         private void OnValidate()
@@ -23,8 +27,8 @@ namespace Behaviours.Item
             if (loot == null)
                 throw new ArgumentException("No item object found");
 
-            if (!gameObject.CompareTag(Tag.Loot.ToString()))
-                throw new ArgumentException("All item must have loot tag");
+            if (!gameObject.CompareTag(Tag.Loot.ToString()) && !gameObject.CompareTag(Tag.Purchasable.ToString()))
+                throw new ArgumentException("All item must have loot or purchasable tag");
         }
 
         private IEnumerator Destroy()

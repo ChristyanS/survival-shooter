@@ -9,6 +9,8 @@ TagManager:
   - Enemy
   - Loot
   - PowerUpPanel
+  - Weapon
+  - Purchasable
   layers:
   - Default
   - TransparentFX

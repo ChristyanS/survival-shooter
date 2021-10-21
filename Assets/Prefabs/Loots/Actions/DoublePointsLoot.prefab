@@ -223,6 +223,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   loot: {fileID: 4540326503936799553, guid: aae1bc9856884fb45abd3c0b8073fc4f, type: 3}
+  enableDestruction: 1
 --- !u!95 &1843244717
 Animator:
   serializedVersion: 3

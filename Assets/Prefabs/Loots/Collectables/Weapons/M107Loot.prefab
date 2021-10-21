@@ -132,7 +132,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   loot: {fileID: 920844463563208395, guid: 7359baf27e84aa44cafac3788c8be0f1, type: 3}
-  handObject: {fileID: 0}
+  enableDestruction: 1
 --- !u!1 &2731068075640019146
 GameObject:
   m_ObjectHideFlags: 0
