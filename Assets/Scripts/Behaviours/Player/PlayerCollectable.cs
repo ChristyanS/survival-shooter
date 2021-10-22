@@ -34,8 +34,7 @@ namespace Behaviours.Player
         {
             var item = Item.Item.GetItem(other);
 
-            if (ScoreManager.Instance.CanSubtractScore(item.Value))
-                ScoreManager.Instance.SubScore(item.Value);
+            ScoreManager.Instance.SubScore(item.Value);
 
             item.Execute(handObject);
 
