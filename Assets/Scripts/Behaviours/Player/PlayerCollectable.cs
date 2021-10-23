@@ -34,7 +34,7 @@ namespace Behaviours.Player
         {
             var item = Item.Item.GetItem(other);
 
-            ScoreManager.Instance.SubScore(item.Value);
+            MoneyManager.Instance.SubMoney(item.Value);
 
             item.Execute(handObject);
 

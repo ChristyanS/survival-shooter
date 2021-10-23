@@ -12,6 +12,7 @@ namespace Behaviours.Enemy
         [SerializeField] [Range(1, 20)] private float sinkSpeed = 2.5f;
         [SerializeField] [Range(0, 5)] private float sinkTime = 2;
         [SerializeField] [Range(0, 200)] private int scoreValue = 10;
+        [SerializeField] [Range(0, 200)] private int moneyValue = 10;
         [SerializeField] private AudioClip deathClip;
         private Animator _animator;
         private AudioSource _audioSource;
@@ -88,6 +89,7 @@ namespace Behaviours.Enemy
             _audioSource.Play();
             WaveManager.Instance.AddDeadEnemies();
             ScoreManager.Instance.AddScore(scoreValue);
+            MoneyManager.Instance.AddMoney(moneyValue);
             KillManager.Instance.AddKill();
         }
 
