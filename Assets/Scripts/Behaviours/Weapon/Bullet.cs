@@ -31,6 +31,7 @@ namespace Behaviours.Weapon
 
         public void Setup(Vector3 shootDirection, float speed, int damage)
         {
+            shootDirection.y = 0;
             _shootDirection = shootDirection;
             _speed = speed;
             _damage = damage;
