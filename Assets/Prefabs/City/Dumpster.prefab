@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3300000}
   - component: {fileID: 2300000}
   m_Layer: 0
-  m_Name: Prop_Dumpster
+  m_Name: Dumpster
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -144,7 +144,7 @@ MonoBehaviour:
   - {fileID: 881686422}
   - {fileID: 526527504}
   - {fileID: 25992829}
-  spawnTime: 5
+  spawnTime: 3
 --- !u!114 &964499811
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -196,4 +196,4 @@ MonoBehaviour:
   waveCountText: {fileID: 0}
   waveNumber: 1
   enemiesNumber: 20
-  enemiesNumberIncrease: 2
+  enemiesNumberIncrease: 5
