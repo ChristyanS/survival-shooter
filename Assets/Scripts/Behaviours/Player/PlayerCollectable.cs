@@ -1,5 +1,6 @@
 using System;
 using Behaviours.Managers;
+using Behaviours.Purchasable;
 using Enums;
 using UnityEngine;
 
@@ -26,6 +27,10 @@ namespace Behaviours.Player
             if (other.CompareTag(Tag.MysteryBox.ToString()))
                 if (VirtualInputInputManager.Instance.PressActionButton)
                     ActiveMysteryBox(other);
+
+            if (other.CompareTag(Tag.UnLockable.ToString()))
+                if (VirtualInputInputManager.Instance.PressActionButton)
+                    Unlock(other);
         }
 
         private void OnValidate()
@@ -47,11 +52,20 @@ namespace Behaviours.Player
 
         private void ActiveMysteryBox(Collider other)
         {
-            var mysteryBox = MysteryBox.MysteryBox.GetMysteryBox(other);
+            var mysteryBox = MysteryBox.GetMysteryBox(other);
 
             MoneyManager.Instance.SubMoney(mysteryBox.Value);
 
             mysteryBox.Open();
+        }
+
+        private void Unlock(Collider other)
+        {
+            var unlockable = Unlockable.GetUnlockable(other);
+
+            MoneyManager.Instance.SubMoney(unlockable.Value);
+
+            unlockable.Unlock();
         }
     }
 }

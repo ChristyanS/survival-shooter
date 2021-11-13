@@ -11,6 +11,7 @@ namespace Enums
         PowerUpPanel = 6,
         Weapon = 7,
         Purchasable = 8,
-        MysteryBox = 9
+        MysteryBox = 9,
+        UnLockable = 10
     }
 }
