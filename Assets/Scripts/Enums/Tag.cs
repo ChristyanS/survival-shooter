@@ -10,6 +10,7 @@ namespace Enums
         Loot = 5,
         PowerUpPanel = 6,
         Weapon = 7,
-        Purchasable = 8
+        Purchasable = 8,
+        MysteryBox = 9
     }
 }
