@@ -12,6 +12,7 @@ TagManager:
   - Weapon
   - Purchasable
   - MysteryBox
+  - UnLockable
   layers:
   - Default
   - TransparentFX

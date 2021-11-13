@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-namespace Behaviours.MysteryBox
+namespace Behaviours.Purchasable
 {
     public class MysteryBox : MonoBehaviour
     {
