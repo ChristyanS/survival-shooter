@@ -6,7 +6,7 @@ namespace Behaviours.Managers
 {
     public class VirtualInputInputManager : Singleton<VirtualInputInputManager>, IVirtualInputManager
     {
-        public bool PressActionButton => Input.GetKeyDown(KeyCode.F);
+        public bool PressActionButton => Input.GetKey(KeyCode.F);
         public bool PressPauseButton => Input.GetKeyDown(KeyCode.P) || Input.GetKeyDown(KeyCode.Escape);
         public float HorizontalAxis => Input.GetAxisRaw(Axis.Horizontal.ToString());
         public float VerticalAxis => Input.GetAxisRaw(Axis.Vertical.ToString());
